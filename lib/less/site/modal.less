@@ -1,0 +1,86 @@
+.modal{}
+
+
+#login-modal {
+  overflow: hidden;
+	.modal-header{
+		h4{
+			font-size:@font + 3;
+			color:@black;			
+			font-weight: 500;
+			text-align: left;
+		}		
+	}
+	.modal-body{
+		background:#ebebeb;
+		label{
+			padding-bottom:10px;
+			input{
+				.box-shadow(inset 0 5px 7px -3px fade(#000, 05)) !important; 
+			}
+		}
+		.enter{
+			.btn_small;
+			background:@primary;
+			color:@bg;						
+			line-height:inherit;
+			height:auto;
+			float:none;
+			margin: 0;
+			padding: 5px 10px;
+			text-align: center;
+			width:100%;			
+			display:inline-block;
+			vertical-align:bottom;
+			&:hover{
+				text-decoration:none;
+				background:@primary;
+				color:@bg;
+			}			
+		}
+	}
+	form {
+		margin-bottom: 10px;
+	}
+	.form-group{
+		margin-bottom: 10px;
+	}
+	a {
+		color: #38a7bb;
+	}
+	#login-modal p {
+		font-weight: 300;
+		margin-bottom: 20px;
+		font-size: 13px;
+	}
+}
+.modal-dialog.modal-video{
+	width:670px;
+	.iframe_youtube{
+		height: 100%;
+		width: 100%;
+	}	
+}
+.modal-dialog.modalCustom{
+	width:400px;
+	&.modalCountry{
+		width:450px !important;
+	}
+	.modal-title{
+		color:@black;
+		font-weight:400;
+		font-size:@font + 3;
+		text-align:center;
+	}
+	.modal-content{
+		.modal-header,.modal-body{
+			background:#ebebeb;
+		}		
+	}
+	p{
+		&.logo_benClube{		
+			margin: 0px;
+			text-align: center;
+		}
+	}	
+}

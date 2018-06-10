@@ -1,0 +1,393 @@
+/*******************lesscss controls*******************/
+* {
+	margin: 0;
+	padding: 0;
+	outline:none;
+}  
+.error{
+	color:@error;
+}
+.success{
+	color:@success;
+}
+li { list-style:none;  }
+a {
+	outline: none;
+	text-decoration:none;
+	font-size: @font + 2;
+	font-family: nunitoregular,Helvetica,Arial,sans-serif;
+	color: @gray;
+}
+.opacity_45 {
+	opacity:.45;
+	-moz-opacity:.45;
+	filter:alpha(opacity=45);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=45)";
+  /* IE 5-7 */
+  filter: alpha(opacity=50);
+} 
+.ui-state-disabled {
+	/*opacity:0.35;*/
+	cursor:default;
+}
+.background-none {
+	background: none !important;
+}
+.opaco {
+	color: @gray !important;
+	cursor: text !important;
+}
+.disable{
+	.opacity_45;
+}
+.odd {
+	background:lighten(@gray, 48%);
+	td {
+		background:lighten(@gray, 48%);
+	}
+}
+img{
+	border:none;	
+}
+
+/* General */
+.full_width_border { width: @full_width -1%;}
+.replace {
+	font-size: 0;
+	overflow: hidden;
+	text-indent: -3000px;
+}
+
+.show { display: block; }
+.hidden, .hideElement, .hide { display: none; }
+.left { float: left; }
+.right { float: right; }
+.drag_item {
+	cursor: url('images/hand_draggable.png'), auto;
+}
+
+.pointer {
+	cursor: pointer;
+} 
+
+input, select{	
+	color: @gray;
+	.rounded(0);
+	&:disabled{
+		.disable;
+		pointer-events:none;
+		outline:none;
+	}
+}
+input{
+	&.autocomplete_empty{
+		.box-sizing;
+		background: url("images/ico.png") no-repeat right -279px @inputs_bg;
+		text-indent: 18px;
+		vertical-align: text-top;
+		padding: 0 15px 0 3px; 
+	}
+	&.autocomplete_loading{
+		.box-sizing;
+		background: url("images/loading_autocomplete.gif") no-repeat right 13px @inputs_bg;
+		text-indent: 18px;
+		vertical-align: text-top;
+		padding: 0 15px 0 3px; 
+	}
+	&.autocomplete_completed{
+		   background-image: none;
+		   padding-right: 0;
+	}
+}
+.radio { 
+	color: @gray;
+	text-indent: 0;
+	padding-left: 20px;
+	cursor: pointer;
+	&:before { 
+		/*.radiobox;*/
+		font-size: @font + 2;
+		margin: 0 5px 0 -19px;
+	} 
+	&.current:before {    
+		/*.radiobox_selected; */
+	}
+}
+.checkbox { 
+	color: @gray;  
+	overflow:hidden; 
+	display: inline-block; 
+	padding-left: 20px;
+    position: relative;
+	line-height: 35px;
+	cursor: pointer;
+	&:before { 
+		/*.check_box; */
+		font-size: @font + 3; 
+		width: 100%; 
+		left: 1px; 
+		position: absolute; 
+		top: 0; 
+	} 
+	&.selected, &.current {   
+		&:before {    
+			/*.check_box_selected; */
+		} 
+	}
+}  
+.expiration_date{
+	float:left; 
+	background: @primary; 
+	position:relative;
+	strong {
+		background: fade(darken(@gray, 50%), 10%); 
+		font-family: sans-serif, Arial, Helvetica;
+		float: left;
+		width: 30px;
+		height: 30px;	
+		line-height: 30px;
+		text-align: center;
+		color: @bg;
+		font-size: @font + 11;
+		letter-spacing: -1px;
+		&.day{
+			background: fade(lighten(@gray, 50%), 5%); 
+			font-size: 11px !important;
+			height: 26px;
+			line-height:11px;
+			color:@bg;   
+			padding-top: 5px;
+			padding-right: 10px;
+			text-align: right !important;			
+			width: 61px !important;
+			position:relative;
+			letter-spacing: normal; 
+		}
+	}
+	span { 
+		background: fade(lighten(@gray, 50%), 5%);
+		color: @bg;  
+		width: 47px; 
+		clear: right; 
+		display: inline-block;
+		text-indent: 5px;
+		line-height: 12px;
+		padding: 3px 0 0 0;
+		text-transform: uppercase;
+		float: right;
+		&.time, &.year {
+			padding: 0 0 3px 0;
+		}
+	}
+	p {
+		.big_title_font;
+		background: lighten(@gray,47); 
+		color: @gray;  
+		float: left; 
+		height: 30px;	
+		line-height: 30px;
+		text-align: center;
+    	width: auto;
+  		padding: 0 5px;	 
+	}
+}
+.toggle_switch {
+	float: left; 
+	a {  
+		.btn_text_ico; 
+		white-space: nowrap;
+		position: relative;   
+    	z-index: 1; 
+		&:before {
+			/*.radiobox; */
+		} 
+		&.active { 
+			cursor: default;
+			margin: 0 -4px;
+			&:before { 
+				/*.radiobox_selected; */
+			}
+			&:hover {
+				.drop-shadow(inset 0, 0, 0px, 0);
+			}
+		} 
+	}  
+}
+
+
+@font-face {
+    font-family: 'nunitoregular';
+    src: url('../fonts/nunito-regular-webfont.eot');	
+    src: url('../fonts/nunito-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/nunito-regular-webfont.woff2') format('woff2'),
+         url('../fonts/nunito-regular-webfont.woff') format('woff'),
+         url('../fonts/nunito-regular-webfont.ttf') format('truetype'),
+         url('../fonts/nunito-regular-webfont.svg#nunitoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('../fonts/opensans-regular.eot');
+    src: url('../fonts/opensans-regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans-regular.woff2') format('woff2'),
+         url('../fonts/opensans-regular.woff') format('woff'),
+         url('../fonts/opensans-regular.ttf') format('truetype'),
+         url('../fonts/opensans-regular.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {	
+	background:#f1f1f1;
+	color:@gray;
+	font-family: @Nunito_Regular;
+	font-size: @font + 1; 
+}
+
+/* Owtheme Inicio /*
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.3.2
+*/
+
+.owl-theme .owl-controls{
+	margin-top: 10px;
+	text-align: center;
+}
+
+/* Styling Next and Prev buttons */
+
+.owl-theme .owl-controls .owl-buttons div{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+	text-decoration: none;
+}
+
+/* Styling Pagination*/
+
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 12px;
+	height: 12px;
+	margin: 5px 7px;
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	opacity: 0.5;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background: #869791;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+}
+
+/* If PaginationNumbers is true */
+
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+	height: auto;
+	width: auto;
+	color: #FFF;
+	padding: 2px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+/* preloading images */
+.owl-item.loading{
+	min-height: 150px;
+	background: url(AjaxLoader.gif) no-repeat center center
+}
+/* Owl Carousel /*
+/* 
+ * 	Core Owl Carousel CSS File
+ *	v1.3.2
+ */
+
+/* clearfix */
+.owl-carousel .owl-wrapper:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+/* display none until init */
+.owl-carousel{
+	display: none;
+	position: relative;
+	width: 100%;
+	-ms-touch-action: pan-y;
+}
+.owl-carousel .owl-wrapper{
+	display: none;
+	position: relative;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+.owl-carousel .owl-wrapper-outer{
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight{
+	-webkit-transition: height 500ms ease-in-out;
+	-moz-transition: height 500ms ease-in-out;
+	-ms-transition: height 500ms ease-in-out;
+	-o-transition: height 500ms ease-in-out;
+	transition: height 500ms ease-in-out;
+}
+	
+.owl-carousel .owl-item{
+	float: left;
+}
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div{
+	cursor: pointer;
+}
+.owl-controls {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* mouse grab icon */
+.grabbing { 
+    cursor:url(grabbing.png) 8 8, move;
+}
+
+/* fix */
+.owl-carousel  .owl-wrapper,
+.owl-carousel  .owl-item{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+}
+
+
+
