@@ -1,0 +1,1541 @@
+<!--Detalhes Produto - Inicio-->
+<section class="intro produto">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>{{detalhe.nome}}</li>
+        </ul>
+      </div>
+    </div>
+    <!-- -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <!-- -->
+        <ul class="slideshow-produto">
+          <li class="item">
+            <a href="#">
+              <img class="img-responsive" src="/lib/images/produtos/{{detalhe.imagem}}" alt="{{detalhe.nome}}">
+            </a>
+          </li>
+        </ul>
+        <!-- /.owl-carousel -->
+        <!-- -->
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="info">
+          <h1 itemprop="name">{{detalhe.nome}}</h1>
+          <h4>{{detalhe.subtitulo[0].atributo}}</h4>
+          <div class="text">
+            <p>{{detalhe.subtitulo[0].valor}}</p>
+          </div>
+          <div class="price">
+            <span>
+              A partir de
+            </span>
+            <span class="valor">{{detalhe.preco | currency: 'R$ '}}</span>
+            <span class="unidade">
+              / {{detalhe.quantidade}} un.
+            </span>
+          </div>
+          <a ng-href="#/configurar/{{detalhe.url}}">
+            <button class="configureproduto">Configure Aqui</button>
+          </a>
+          <span class="spec">
+            Na próxima tela você pode configurar as especificações
+            do seu produto e conferir o preço
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Detalhes Produto - Fim-->
+
+<!--Informações do Produto - Inicio-->
+<section class="intro info">
+  <div class="container">
+    <!-- Tab  -->
+    <div class="heading">
+      <h2>Informações do Produto</h2>
+    </div>
+    <div id="tabs" class="tabs">
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#tabDicas" data-toggle="tab">
+            Dicas
+          </a>
+        </li>
+        <li class="">
+          <a href="#tabUtilizar" data-toggle="tab">
+            Como Utilizar
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tabDicas">
+          <div class="owl-carousel info-dicas owl-theme">
+            <div owl-carousel-one-slide ng-repeat="x in detalhe.dicas" class="item">
+              <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  <img class="img-responsive" src="/lib/images/produtos/atributos/{{x.imgAtributo}}" alt="{{x.atributo}}">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                  <h4>{{x.atributo}}</h4>
+                  <p>{{x.valor}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.owl-carousel -->
+        </div>
+        <div class="tab-pane" id="tabUtilizar">
+          <div class="owl-carousel info-como-utilizar owl-theme">
+            <div jquery-ui-tabs-owl-car-one-slide ng-repeat="x in detalhe.comoUtilizar" class="item">
+              <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  <img class="img-responsive" src="/lib/images/produtos/atributos/{{x.imgAtributo}}" alt="{{x.atributo}}">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                  <h4>{{x.atributo}}</h4>
+                  <p>{{x.valor}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.owl-carousel -->
+        </div>
+      </div>
+      <!-- /.tab-content -->
+    </div>
+    <!-- /.tabs -->
+  </div>
+</section>
+<!--Informações do Produto - Fim-->
+
+<!--Tutoriais - Inicio-->
+<section class="tutoriais">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading">
+          <h2>Tutoriais</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-7 col-md-8">
+        <!-- -->
+        <a href="#" data-toggle="modal" data-target="#video-modal">
+          <p class="tutorialTitle">{{detalhe.tutoriais[0].atributo}}</p>
+          <img src="/lib/images/produtos/atributos/{{detalhe.tutoriais[0].imgAtributo}}" style="width:100% !important" alt="{{detalhe.tutoriais[0].atributo}}" title="{{detalhe.tutoriais[0].atributo}}" />
+        </a>
+        <!-- -->
+        <!-- -->
+        <div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="Video" aria-hidden="true">
+          <div class="modal-dialog modal-video">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="Model"></h4>
+              </div>
+              <div class="modal-body">
+                <div class="iframe_youtube">
+                  <iframe id="player" allowfullscreen="1" title="YouTube video player" src="{{detalhe.tutoriais[0].url}}" frameborder="0"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- *** Modelos  MODAL END *** -->
+        <!-- -->
+      </div>
+      <div class="col-xs-12 col-sm-5 col-md-4">
+        <!-- -->
+        <div class="box-blog">
+          <span>Artigos</span>
+          <ul>
+            <li ng-repeat="x in detalhe.artigos">
+              <a href="{{x.url}}" target="_blank">
+                <img src="/lib/images/produtos/atributos/{{x.imgAtributo}}" title="{{x.atributo}}" alt="{{x.atributo}}" />
+                <p>{{x.atributo}}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- -->
+      </div>
+    </div>
+  </div>
+</section>
+<!--Tutoriais - Fim-->
+
+<!--100 Garantido - Inicio-->
+<section>
+  <div class="container garantido">
+    <div class="row">
+      <div class="col-xs-4 col-sm-3 col-md-3">
+        <img src="images/ico-garantido.jpg" style="width: 100% !important;">
+      </div>
+      <div class="col-xs-8 col-sm-5 col-md-5" style="padding:0">
+        <span>Não corra risco com seu impresso!</span>
+        <p>A nossa satisfação é a sua satisfação. Não ficou satisfeito com a qualidade do material que recebeu? Nós vamos reimprimi-lo! Sem custos e sem burocracia.</p>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4" style="text-align:center; padding:0">
+        <a ng-href="#/configurar/{{detalhe.url}}">
+          <button class="configureproduto">Configure Aqui</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!--100 Garantido - Fim-->
+
+<!--Vantagens - Inicio-->
+<section class="vantagens">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading">
+          <h2>Vantagens</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <ul class="box vantagens">
+          <li class="first">
+            <ul>
+              <li class="outras">
+                <span>OUTRAS GRÁFICAS ONLINE</span>
+              </li>
+              <li><i class="ok"></i></li>
+              <li><i class="no"></i></li>
+              <li><i class="ok"></i></li>
+              <li><i class="no"></i></li>
+              <li><i class="no"></i></li>
+              <li><i class="no"></i></li>
+              <li><i class="no"></i></li>
+              <li><i class="no"></i></li>
+            </ul>
+          </li>
+          <li class="second">
+            <ul>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="44 40 680 289" class="logofull">
+                  <path d="M44.7 350.2V145.6h13.1l5.6 13.1s10.1-3.6 20.7-7.5 21.7-5.6 30-5.6 16.6 1.6 22.6 5.6c6.1 4 9.6 9.4 12.6 15.7 6.1 12.7 6.2 27 6.2 44.4 0 33.7-5.2 56.2-19.4 65.1-6.2 3.9-16.1 5.4-23.8 5.4-7.6 0-16.3-.8-26-2.7-9.7-1.9-15.3-2.8-22.8-5.9v77H44.7zm67.6-86.3c8.8 0 15.4-3.9 19.5-11.2 4.1-7.2 4.9-21.9 4.9-41.4 0-16.3-2.3-29.7-7.5-37.6-3.7-5.6-9.4-9.4-18.8-9.4-14.4 0-27.9 3.5-46.9 11.3l-.1 82.6c13.2 5.7 32 5.7 48.9 5.7m84.5-88.3c19-7.7 32.8-11.3 47-11.3 8.9 0 22.5 1.9 22.5 1.9v-16.9c-5.2-2.6-12.2-3.8-18.9-3.8-8.2 0-19.4 1.7-30 5.6-10.6 4-20.7 7.5-20.7 7.5l-5.6-13.1H178v135.2h18.8V175.6zm379.3-54.4V108c0-3.9 1.9-5.6 5.6-5.6H593c3.6 0 5.6 1.8 5.6 5.6v13.1c0 3.5-2 5.6-7.5 5.6h-9.5c-1.7.1-5.5-2-5.5-5.5m1.9 24.4h18.8v135.1H578zm-289.1-24.4V108c0-3.9 1.9-5.6 5.6-5.6h11.3c3.6 0 5.6 1.8 5.6 5.6v13.1c0 3.5-2 5.6-7.5 5.6h-9.5c-1.6.1-5.5-2-5.5-5.5m1.9 24.4h18.8v135.1h-18.8zm118.1 0c-7.1 0-19.9 1.9-29.9 5.6-10.6 3.9-20.8 7.5-20.8 7.5l-5.6-13.1h-13.1v135.2h18.8V175.6c19-7.8 32.9-11.3 47-11.3 9.5 0 15 3.8 18.7 9.4 4.3 6.5 5.6 14.2 5.6 26.3v80.7h18.8l.1-89.2c0-10.3-2.7-31.3-17-40.4-1.1-.7-2.3-1.4-3.6-2-5-2.2-11.3-3.5-19-3.5m58.3 18.7v-13.2l24.4-5.5 5.6-39.4h13.1v39.4h39.4v18.8h-39.4v62.9c-.3 15.8 3.4 28 13.6 33.4 7.9 3.9 25.9 3.2 25.9 3.2v16.9h-24.4c-21 0-34.5-18.8-33.8-48.9v-67.5h-24.4zm209.3-31.6c-.2 20.8-16.7 37.6-37.3 38.4-3.1.3-5.4 2.9-5.4 6.1v32.6c0 3.4 2.7 6.1 6.1 6.1.3 0 .5 0 .8-.1 45.8-2.5 82.1-40.4 82.1-86.8V43.7c0-3.4-2.7-6.1-6.1-6.1h-76.8c-3.4 0-6.1 2.7-6.1 6.1v77c0 3.4 2.7 6.1 6.1 6.1h30.6c3.2 0 5.9 2.5 6.1 5.7-.1.1-.1.2-.1.2"></path>
+                </svg>
+              </li>
+              <li><i class="ok"></i>Pedidos 24h e Orçamento online</li>
+              <li><i class="ok"></i>Entrega no mesmo dia*</li>
+              <li><i class="ok"></i>Download de Gabaritos Grátis</li>
+              <li><i class="ok"></i>Impressão de Baixa e Alta tiragem</li>
+              <li><i class="ok"></i>Escolha do dia de recebimento</li>
+              <li><i class="ok"></i>Atendimento especializado</li>
+              <li><i class="ok"></i>Qualidade offset a preços baixos</li>
+              <li><i class="ok"></i>Parque Gráfico próprio</li>
+              <li>
+                <a ng-href="#/configurar/{{detalhe.url}}">
+                  <button class="configureproduto">CONFIGURE AQUI</button>
+                </a>
+                <div class="consulte-produtos">
+                  *Consulte os produtos disponíveis
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="third">
+            <ul>
+              <li class="trad">
+                <span>GRÁFICAS TRADICIONAIS</span>
+              </li>
+              <li><i class="no"></i></li>
+              <li><i class="no"></i></li>
+              <li><i class="no"></i></li>
+              <li><i class="no"></i></li>
+              <li><i class="no"></i></li>
+              <li><i class="ok"></i></li>
+              <li><i class="ok"></i></li>
+              <li><i class="ok"></i></li>
+            </ul>
+          </li>
+
+
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--Vantagens - Fim-->
+
+<!--Clientes - Inicio-->
+<section class="hightlights">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading">
+          <h2>MAIS DE 50 MIL CLIENTES CONFIAM NA PRINTI</h2>
+        </div>
+        <div id="crs-destaques" class="owl-carousel owl-theme">
+          <div owl-carousel-five-slides ng-repeat="x in listClientes" class="item">
+            <a href="{{x.url}}">
+              <img src="/lib/images/logos/{{x.imagem}}" alt="{{x.titulo}}" title="{{x.titulo}}">
+            </a>
+          </div>
+        </div>
+        <!-- /.owl-carousel -->
+      </div>
+    </div>
+  </div>
+  <div class="clientes-home-navigation">
+    <a class="btn prev">Próxima</a>
+    <a class="btn next">Anterior</a>
+  </div>
+</section>
+<!--Clientes - Fim-->
+
+<!-- Depoimento - Inicio  -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul id="crs-depoimentos" class="owl-carousel testimonials owl-theme">
+          <li owl-carousel-three-slides ng-repeat="x in listDepoimentos" class="item">
+            <div class="testimonial">
+              <div class="text">
+                <p>"{{x.depoimento}}"</p>
+              </div>
+              <div class="bottom">
+                <div class="icon">
+                  <i class="fa fa-quote-left"></i>
+                </div>
+                <div class="name-picture">
+                  <img class="" alt="" src="/lib/images/depoimentos/{{x.imagem}}">
+                  <h5>{{x.nome}}</h5>
+                  <p>{{x.posicao}}</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Depoimento - Fim  -->
+
+<!--Mais Opiniões - Inicio-->
+<section class="opinioes">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading">
+          <h2>MAIS OPINIÕES</h2>
+        </div>
+        <div>
+          <div class="col-xs-12 col-sm-6 col-md-5" style="padding:0">
+            <ul class="avaliacoes" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating" content="Cartão de Visita">
+              <li>
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <p class="recomenda" style="padding-left: 0px !important">Média de <span itemprop="ratingValue">5.0</span> estrelas num total de <span itemprop="reviewCount">66</span> opiniões</p>
+              </li>
+              <li class="five avalia">
+                <div class="star"></div>
+                <div class="rate"><i style="height:5px; border-radius: 3px; width: 66.666666666667%"></i></div>
+                <div class="numb">44</div>
+              </li>
+              <li class="four avalia">
+                <div class="star"></div>
+                <div class="rate"><i style="height:5px; border-radius: 3px; width: 31.818181818182%"></i></div>
+                <div class="numb">21</div>
+              </li>
+              <li class="three avalia">
+                <div class="star"></div>
+                <div class="rate"><i style="height:5px; border-radius: 3px; width: 1.5151515151515%"></i></div>
+                <div class="numb">1</div>
+              </li>
+              <li class="two avalia">
+                <div class="star"></div>
+                <div class="rate"><i style="height:5px; border-radius: 3px; width: 0%"></i></div>
+                <div class="numb">0</div>
+              </li>
+              <li class="one avalia">
+                <div class="star"></div>
+                <div class="rate"><i style="height:5px; border-radius: 3px; width: 0%"></i></div>
+                <div class="numb">0</div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-7" style="padding:0;">
+            <ul class="comments" style="overflow-y: scroll; overflow-x: hidden; height: 300px">
+              <li class="comment">
+                <button type="submit" class="blue">
+                  <a style="color: inherit; text-decoration: none;" href="mailto: suporte@printi.com.br">ENVIAR COMENTÁRIO </a>
+                </button>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-08-04">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Só posso elogiar esta empresa que trabalha com honestidade, profissionalismo e respeito aos clientes. Meus cartões ficaram perfeitos.</p>
+                </div>
+                <div class="author"><span itemprop="author">Martha, Alagoas — 04 de Agosto, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-08-04">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Recebi meus cartões de visita e simplesmente adorei! Produtos de qualidade, embalados cuidadosamente e um pós-venda super atencioso! Parabéns a toda equipe!</p>
+                </div>
+                <div class="author"><span itemprop="author">Jacira, Alagoas — 04 de Agosto, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-08-04">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Encomendei meus cartões, mas eles chegaram manchados. Avisei o erro e prontamente me mandaram novos sem manchas. Fiquei muito satisfeita!</p>
+                </div>
+                <div class="author"><span itemprop="author">Marisa, Caraguatatuba — 04 de Agosto, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-08-04">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="three">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">3</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Eu tive alguns problemas com prazo de entrega, mas a qualidade do material do cartão de visitas é ótima! Sempre indico!</p>
+                </div>
+                <div class="author"><span itemprop="author">Marília, Rio de Janeiro — 04 de Agosto, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-08-04">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Já fiz banners, cartões de visitas, marcadores, mobiles, folder... Tudo chegou com 100% de qualidade. Recomendo!</p>
+                </div>
+                <div class="author"><span itemprop="author">Jonathan, Suzano — 04 de Agosto, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-08-04">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Muito satisfeito com o resultado do meu cartão de visitas. Show de bola... Muito obrigado!</p>
+                </div>
+                <div class="author"><span itemprop="author">Maurício, Belo Horizonte — 04 de Agosto, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-08-04">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Adorei meu Cartão de Visita. Ficou Ótimo e chegou antes da data prevista. Estou satisfeita!</p>
+                </div>
+                <div class="author"><span itemprop="author">Fernanda, São Paulo — 04 de Agosto, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-09">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Fiz a arte do meu cartão de visita conforme orientação do site, frente e verso, no formato 80x50 mm e estou muito feliz com os cartões. Ficaram como eu imaginava ou até melhor. O papel couché 250g é bem melhor do que eu esperava, não é tão fino quanto alguns que eu recebi.</p>
+                </div>
+                <div class="author"><span itemprop="author">Tatiana, São Paulo — 09 de junho, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-09">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Recorri a compra de cartão de visita online por falta de boas opções onde moro e trabalho. Comprei cartões 8,5x5,5 cm, com impressão apenas na frente e fiquei muito satisfeito com o que recebi, na próxima compra, farei cartões com cantos arredondados, para um evento.</p>
+                </div>
+                <div class="author"><span itemprop="author">Kaue, Salvador — 09 de junho, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-09">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Minha primeira impressão em relação ao site foi a de que eu poderia fazer a minha arte através de gabaritos. Após efetuar o pagamento, percebi que não tem esta opção. Paguei o custo adicional para desenvolver meu cartão de visita e fiquei impressionado com a atenção que recebi. A arte ficou muito boa e ressaltou meu logo. Gosto sempre de usar a laminação fosca e, por ter um pouco de conhecimento, posso comprovar a qualidade dos cartões de visita que a Printi oferece.</p>
+                </div>
+                <div class="author"><span itemprop="author">Matheus, São Paulo — 09 de junho, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Minha empresa faz os cartões de visita de todos os colaboradores com a Printi. A qualidade do material é incomparável, não encontrei nenhuma empresa melhor.</p>
+                </div>
+                <div class="author"><span itemprop="author">Eliana, São Paulo — 28 de Fevereiro, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Uma das coisas que me surpreendeu na Printi foi a possibilidade de fazer quantidades menores de materiais que, normalmente, nenhuma gráfica quer fazer.</p>
+                </div>
+                <div class="author"><span itemprop="author">Bruno, Cotia — 28 de Fevereiro, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Quando penso em gráfica, já me vem a Printi em mente. Foi a primeira gráfica onde eu comprei e a experiência foi tão satisfatória que não quero correr risco com outras.</p>
+                </div>
+                <div class="author"><span itemprop="author">Jaime, Arujá — 28 de Fevereiro, 2016</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">É o primeiro pedido que faço com a Printi e fiquei muito satisfeita. As cores ficaram lindas e a laminação fosca deixou meu cartão muito mais sofisticado. Farei muitos outros pedidos. Obrigada, Printi!</p>
+                </div>
+                <div class="author"><span itemprop="author">Marisa, Praia Grande — 21 de dezembro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Precisava fazer cartão de visita barato e encontrei a Printi. Como uso os cartões para distribuir em uma feira livre que participo aos finais de semana, o modelos 8x5 cm, só frente e sem laminação são perfeitos pra mim.</p>
+                </div>
+                <div class="author"><span itemprop="author">Julia, Campinas — 19 de Dezembro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Estava a procura de uma gráfica de cartão de visita e encontrei a Printi. Comprei 100 unidades com laminação fosca e cantos arredondados e fiquei bem satisfeito.</p>
+                </div>
+                <div class="author"><span itemprop="author">Arthur, São Paulo — 11 de Dezembro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Contratei o serviço de impressão de cartão de visita com a Printi, pois a gráfica online foi muito bem recomendada. Comprei cartões no formato de 5x5, frente e verso, no papel couché fosco 300g. Pela gramatura do papel não vi a necessidade de laminação. Ainda estou no aguardo do material, mas estou confiante.</p>
+                </div>
+                <div class="author"><span itemprop="author">Sophia, Natal — 18 de Novembro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">É a primeira vez que mando fazer cartões de visita online e fiquei muito satisfeito com o resultado. Comprei 250 unidades no formato de 85x55, colorido frente e verso, com laminação fosca. Parabéns Printi pelo excelente trabalho.</p>
+                </div>
+                <div class="author"><span itemprop="author">Miguel, Campo Grande — 07 de Novembro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Com a qualidade dos cartões que recebi dá até vontade de fazer mais um. O papel couché com a laminação fosca destacou meu layout e os cantos arredondados deram o toque final. Fantástico!</p>
+                </div>
+                <div class="author"><span itemprop="author">Paula, São Paulo — 20 de outubro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Achei o modelo de cartão de visita no formato de 8x5 cm bem diferente. A opção de papel offset é excelente para quem precisa fazer anotações no cartão, como é o meu caso. Comprei 250 unidades.</p>
+                </div>
+                <div class="author"><span itemprop="author">Fernanda, Mogi das Cruzes — 17 de outubro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Meus cartões de visita são lindos! As cores ficaram muito vibrantes no papel couché brilho. Estou muito satisfeita com a qualidade.</p>
+                </div>
+                <div class="author"><span itemprop="author">Marilia, São Paulo — 12 de outubro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Comprei um novo modelo de cartão, o de 4 páginas, para fazer anotações na parte de dentro. Nunca tinha feito cartão assim e achei uma ótima ideia. Escolhi o papel offset porque o suporte me disse que é mais recomendado para anotações e o papel é realmente muito bom.</p>
+                </div>
+                <div class="author"><span itemprop="author">André, São Paulo — 24 de setembro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Cartões fantásticos. Ficaram perfeitamente de acordo com a minha arte. Adorei a opção do cartão de visita no papel offset 240g. Pena que fui obrigada a mudar meu número de celular e pouco vou aproveitá-los.</p>
+                </div>
+                <div class="author"><span itemprop="author">Ana Maria, Contagem — 14 de setembro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">A inauguração da minha loja é na próxima semana e estou muito contente com o serviço prestado pela Printi. O modelo reciclato tem tudo a ver com o meu negócio e a qualidade de impressão ficou perfeita.</p>
+                </div>
+                <div class="author"><span itemprop="author">Dayse, Feira de Santana — 09 de setembro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Comprei meu cartões de visita com a Printi e recebi um material impecável. Comprei no papel couché 300g fosco e acrescentei a laminação, o que deixou meu cartão mais sofisticado. Gostei.</p>
+                </div>
+                <div class="author"><span itemprop="author">Gaetano, Ribeirão Preto — 20 de agosto 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Sempre compro cartões com a Printi mas essa opção de 4 páginas é nova. Adaptei minha arte e comprei este modelo, no papel offset 240g, que eu também não conhecia para usar como ‘termos de garantia’ das bijuterias que vendo. Os cartões acabaram de chegar. Mais uma vez, estou super satisfeita!</p>
+                </div>
+                <div class="author"><span itemprop="author">Zulmira, São Paulo — 13 de agosto, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Meus cartões chegaram. Não entendo nada de material gráfico, mas a equipe da Printi foi ótima. Comprei 100 unidades, no papel reciclado 240g. A arte também é criação da gráfica online e ficou muito boa.</p>
+                </div>
+                <div class="author"><span itemprop="author">Deborah, São Carlos — 01 de agosto 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Sou assistente social e comprei meus cartões de visita para ter uma apresentação mais profissional e fiquei encantada com o material que recebi. Solicitei os cartões no papel couché 250g, com laminação fosca e cantos arredondados. Muito bom!</p>
+                </div>
+                <div class="author"><span itemprop="author">Solange, Marilia — 30 de julho, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Sou proprietário de uma agencia de propaganda e conheci a Printi por indicação de colegas da área. Comprei alguns impressos para conhecer e, recentemente, fiz um cartão de visita como cortesia para um cliente. Escolhi a opção em papel couché 300g com laminação fosca, pois o material fica mais sofisticado e tem melhor durabilidade. Estou super satisfeito com os materiais que recebi e, principalmente, com a qualidade deste último cartão.</p>
+                </div>
+                <div class="author"><span itemprop="author">Arthur, Ribeirão Preto — 19 de julho, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Trabalho em uma agência de publicidade e há tempos buscávamos por uma gráfica competente e comprometida. Fiz a cotação online com a Printi, recebi o portfólios de papéis e só então fiz o primeiro pedido. Os cartões de visita chegaram impecáveis, bem embalados e dentro do prazo solicitado. Já fiz um segundo pedido e assim que receber conto como foi. Por hora, excelente experiência.</p>
+                </div>
+                <div class="author"><span itemprop="author">Elaine, Rio de Janeiro — 10 de julho, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Sou decoradora e pela primeira vez fiz meus cartões de visita online. Comprei na Printi por indicação de uma amiga e fiquei muito contente com o resultado final. Já indiquei para outras pessoas e pretendo continuar usando os serviços, inclusive para outros impressos.</p>
+                </div>
+                <div class="author"><span itemprop="author">Juliana, São Paulo — 04 de julho, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Os cartões da Printi são muito bons. Já comprei diversos modelos, quantidades e acabamentos e sempre fico muito satisfeito. Os últimos foram apenas 250 unidades, sem enobrecimento, mas ficaram lindos.</p>
+                </div>
+                <div class="author"><span itemprop="author">Douglas, São Paulo — 25 de junho, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Procurei a Printi por indicação. Minha primeira compra foi de cartões padrão, sem enobrecimento, para fazer o teste. Comprovei a qualidade e pedi os meus definitivos, com cantos arredondados e laminação fosca. Incrível! Estou muito satisfeito.</p>
+                </div>
+                <div class="author"><span itemprop="author">Sergio, Porto Alegre — 03 de junho, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Comprar cartão de visita online não é mais novidade. Novidade mesmo é receber no prazo e com a qualidade que a Printi. fiquei muito satisfeito com a impressão e laminação dos impressos, principalmente porque comprei apenas 100 unidades.</p>
+                </div>
+                <div class="author"><span itemprop="author">Pedro, Campinas — 28 de maio, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Cartão de visita é sempre a primeira solicitação de um cliente em uma gráfica. E a julgar pela qualidade do material que recebi, a Printi ganhou um cliente. Comprei cartão de visita sem enobrecimento e mesmo assim a qualidade é fantástica!</p>
+                </div>
+                <div class="author"><span itemprop="author">Daniel, São Paulo — 27 de maio, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Recebi um email falando sobre a laminação fosca e resolvi testar o serviço. O resultado é realmente muito bom e meus cartões ficaram mais resistentes que o normal, mesmo sendo na gramatura 250g. Gostei!</p>
+                </div>
+                <div class="author"><span itemprop="author">Vagner, Santos — 19 de maio, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Pessoal da Printi, meus cartões chegaram. Apresar de não conhecer de enobrecimento, comprei com laminação fosca e fiquei muito satisfeito. As cores ficaram muito boas e o cartão bem firme. Obrigado a todos pelas orientações.</p>
+                </div>
+                <div class="author"><span itemprop="author">Angelo, São Paulo — 07 de maio, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Olá! Estou deixando este recado, pois gostei muito da qualidade da Printi. É a primeira vez que compro cartão de visita online e aproveitei para solicitar com laminação fosca e cantos arredondados. Ficou impecável, além de a entrega ser realizada no prazo acordado. Parabéns a todos os profissionais envolvidos.</p>
+                </div>
+                <div class="author"><span itemprop="author">Karina, Ribeirão Preto — 29 de abril, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Abri minha loja a pouco tempo e precisei fazer cartão de visita. Como vi a Printi no Facebook, entrei em contato e acabei fechando o pedido. Comprei cartões foscos e confesso que fiquei muito satisfeita. Não conhecia este acabamento e adorei!</p>
+                </div>
+                <div class="author"><span itemprop="author">Pamela, São Paulo — 18 de abril, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">No dia da mentira eu recebi os cartões da minha loja e realmente é difícil de imaginar. Comprei cartões pela internet, coloridos frente e verso e com laminação fosca, paguei e enviei a arte, tudo muito rápido e fácil. O material chegou dentro do prazo informado e com uma excelente qualidade. Excelente trabalho!</p>
+                </div>
+                <div class="author"><span itemprop="author">Francisca, São Paulo — 01 de abril, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Sou leigo em assuntos da internet e fiquei bem receoso em fazer uma compra de cartão de visita online e ainda tendo que pagar antes de ver o material. Mas como recebi um excelente atendimento fiz o pedido. Meu cartões chegaram antes da data combinada e a aplicação do verniz destacaram bastante as cores. Fiquei muito satisfeito e confiante na gráfica. Farei mais pedidos.</p>
+                </div>
+                <div class="author"><span itemprop="author">Joaquim, São Caetano do Sul — 22 de fevereiro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Conheço outras gráficas online, mas este foi meu primeiro pedido com a Printi. Fiz meus cartões de visita, com laminação fosca, para testar a qualidade da empresa e ter mais uma opção de fornecedor. Fiquei muito satisfeito e, com certeza, ganharam um cliente.</p>
+                </div>
+                <div class="author"><span itemprop="author">Norberto, São Paulo — 11 de fevereiro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Tudo perfeito! Impressão perfeita, atendimento excelente e entrega no prazo. Pedi o modelo mais simples de cartão – couché 250g (fosco), com arte apenas na frente e sem acabamento, mas o resultado final foi surpreendente.</p>
+                </div>
+                <div class="author"><span itemprop="author">Ulisses, Santo André — 05 de fevereiro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Meus cartões chegaram perfeitos! Comprei 100 unidades com laminação fosca para levar a um evento e recebi diversos elogios, tanto da arte (também desenvolvida pela Printi), quanto pela qualidade. Estão de parabéns pelo serviço prestado. Fidelizaram mais um cliente.</p>
+                </div>
+                <div class="author"><span itemprop="author">Tiago, São Paulo — 15 de janeiro, 2014</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">O atendimento é realmente muito bom e a qualidade do cartão de visita é impecável. Fiz os cartões sem nenhum acabamento adicional para conhecer a Gráfica e fiquei muito satisfeita. Parabéns e sucesso! Matheus – São Paulo27 de novembro de 2013</p>
+                </div>
+                <div class="author"><span itemprop="author">Larissa, Santos — 13 de dezembro, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Gostei muito dos cartões que recebi e indiquei para um amigo que esta precisando. Achei as cores particularmente bonitas e o acabamento ficou muito bom. Fui instruído pelo suporte a utilizar a laminação fosca e gostei do resultado.</p>
+                </div>
+                <div class="author"><span itemprop="author">Fabiano, Brasilia — 13 de novembro, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">É legal a empresa dedicar um espaço para os clientes falarem abertamente sobre o serviço prestado. Desde de que descobri as gráficas online só compro cartão de visita desta maneira. A Printi me entregou no prazo e com qualidade superior as que já trabalhei. Meu pedido foi para couché 300g, colorido frente e verso, sem laminação. Se alguém ficar na dúvida, eu recomendo.</p>
+                </div>
+                <div class="author"><span itemprop="author">Ricardo, Rio de Janeiro — 20 de outubro, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Compro com a Printi porque é um site confiável, com entrega dentro do prazo e preço justo. Mas o que mais me atrai é a possibilidade de fazer orçamento de cartão de visita online. Na verdade é possível fazer para todos os produtos, mas eu tenho uma grande demanda por imprimir cartão de visita, então aproveito essa funcionalidade. Sem contar na qualidade, que é excelente.</p>
+                </div>
+                <div class="author"><span itemprop="author">Marcelo, São Paulo — 02 de outubro, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Acabei de receber meus cartões de visitas e adorei a qualidade das cores (muito vibrantes) e do papel, que é mais "durinho" do que eu costumo ver. Em breve irei comprar mais cartão de visita. Parabéns!</p>
+                </div>
+                <div class="author"><span itemprop="author">Marcia, Águas de Lindóia — 13 de setembro, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Não tenho muita demanda por imprimir cartão de visita, mas sempre que surgia a necessidade procurava uma pequena gráfica perto de casa. Como a qualidade não é muito boa e eu perdia muito tempo me deslocando até o local, resolvi inovar e procurar uma gráfica de cartão de visita online. No site da Printi encontrei a facilidade que procurava e até mudei o meu cartão. Hoje eles tem laminação fosca e impressão dos dois lados. Gostei bastante do papel 300g, pois deixou meu cartão mais "encorpado". Adorei a novidade e meus clientes também!</p>
+                </div>
+                <div class="author"><span itemprop="author">Amanda, São Paulo — 10 de setembro, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Utilizo cartões de visita com frequência por conta das diversas reuniões que participo. Normalmente meus cartões eram simples, com fundo branco e letras em preto, em papel simples, de papelaria. Um amigo me indicou o site da Printi pela facilidade de fazer cartão de visita online e fiquei impressionado com as possibilidades. Hoje tenho cartão colorido, no papel couchê 300g e com a laminação fosca, que deixa o impresso muito mais bonito. Virei cliente!</p>
+                </div>
+                <div class="author"><span itemprop="author">Roberto, Brasilia — 05 de agosto, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Comprei meus cartões de visita com a Printi e adorei. O mais importante deste primeiro contato foi conseguir sanar dúvidas e escolher o cartão mais adequado para a minha empresa. Acabei escolhendo um modelo em papel fosco e com as informações apenas na frente que ficou incrível.</p>
+                </div>
+                <div class="author"><span itemprop="author">Fabiola, São Bernardo do Campo — 23 de julho, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Recebi meus cartões! Minha primeira compra foi para cartões de visitas com impressão apenas na frente. Mas com a ajuda da Printi resolvi fazer colorido dos dois lados e distribuir um pouco as informações, para não ficar "poluído". Excelente dica! Adorei o resultado.</p>
+                </div>
+                <div class="author"><span itemprop="author">Julia, Praia Grande — 20 de junho, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Sou adepto a compras online e recentemente precisei de cartões para minha empresa. Procurei algumas opções na Internet e de todas as gráficas que consegui contato, a Printi foi a que me surpreendeu. Com a ajuda do atendimento, sempre muito ágil, passei a entender um pouco mais sobre gramatura e cores. Também comprei meu cartão confiante. Escolhi com laminação fosca, que ficou resistente e sofisticado.</p>
+                </div>
+                <div class="author"><span itemprop="author">Mauricio, São Paulo — 12 de maio, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Nossa empresa tem trabalhado com a Printi para fazer cartão de visita e a Printi vem fazendo um trabalho incrível. Ela criou um design inteligente para os cartões de visitas e é sempre uma alegria trabalhar com eles. Eu recomendo.</p>
+                </div>
+                <div class="author"><span itemprop="author">Marta, Osasco — 02 de abril, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Boa qualidade de impressão e acabamento dos meu cartão de visita, e ótimo atendimento de cada Departamento da Printi: comercial, financeiro e suporte técnico. Acostumado aos atrasos das outras gráficas por onde passei, aqui encontrei minha casa definitiva. Recomendo a todos.</p>
+                </div>
+                <div class="author"><span itemprop="author">Mauro, São Paulo — 13 de março, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Eu trabalho com diversos fornecedores, muitos dos quais através de sistemas online. Com isso, passei a pesquisar diversas gráficas que atendessem as necessidades e com preços bons. Considero bom, prazo de entrega compatível, bom atendimento de suporte, qualidade de impressão e um preço em conta. Já estava doido, por contratar várias empresas e ter problemas. Quando achei a Printi tive a certeza que era esta a empresa. Fiquei impressionado com a qualidade dos cartões de visitas e o ótimo suporte, que é muito eficiente. Depois de um tempo, solicitei novos modelos de cartões e mais uma vez fui surpreendido.</p>
+                </div>
+                <div class="author"><span itemprop="author">Wilson, São Paulo — 07 de março, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Gostaríamos de agradecer pelo excelente atendimento e entrega dos cartões de visitas. Estamos satisfeitas com a qualidade final do material. Parabéns a todas as pessoas envolvidas. Continuem trabalhando sempre com este profissionalismo, por que com certeza recomendaremos a Printi em todas as oportunidades. Até a Próxima!</p>
+                </div>
+                <div class="author"><span itemprop="author">Julia e Beatriz, São Paulo — 01 de março, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Encontrei o site da Printi por acaso, fazendo pesquisas na internet e resolvi experimentar. Imprimi meus cartões de visitas e fiquei muito satisfeito com o resultado final. É bem tranquilo comprar pelo site e enviar a arte, a impressão é de ótima qualidade e os cantos ficaram realmente arredondados, bem diferente de outras gráficas. Para as próximas feiras já sei onde solicitar novos cartões. Obrigado Printi!</p>
+                </div>
+                <div class="author"><span itemprop="author">Jorge, Salvador — 14 de fevereiro, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">A relação custo/benefício é muito boa. Podemos entrar no site, fazer cotações instantâneas e verificar a arte, tudo rápido. Para aqueles que possuem pouco conhecimento como eu, o site te lembra de todos os detalhes. Recebi os cartões a poucos dias então não consegui distribui-los, mas alguns poucos clientes elogiaram bastante a qualidade. A entrega da Printi foi de primeira, rápida e eficiente mas sugiro dar outras opções além dos serviços do Correios.</p>
+                </div>
+                <div class="author"><span itemprop="author">Marcia, São Paulo — 02 de fevereiro, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="four">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">4</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Tinha que fazer 5000 cartões de visita com urgência, por isso decidi testar a Printi porque as outras gráficas online não me passavam confiança para esse pedido de grande quantidade. A qualidade ficou boa e fiquei bem satisfeito com a entrega que foi pontual.</p>
+                </div>
+                <div class="author"><span itemprop="author">Fernando, Curitiba — 16 de janeiro, 2013</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Qualidade excelente, sem falar na rapidez da entrega. Parabéns, Printi!</p>
+                </div>
+                <div class="author"><span itemprop="author">Gabriel, Fortaleza — 30 de outubro, 2012</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Serviço sensacional, adorei e recomendo a todos!!!</p>
+                </div>
+                <div class="author"><span itemprop="author">Celia, São Paulo — 27 de outubro, 2012</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Meus cartões de visita ficaram ótimos. Vou fazer mais com certeza.</p>
+                </div>
+                <div class="author"><span itemprop="author">Ricardo, São Paulo — 13 de outubro, 2012</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Virei fã da Printi depois de fazer meus cartões. Chegaram na data prevista e em perfeito estado, sem contar que ficaram lindos. Enfim, já recomendei pra vários amigos!</p>
+                </div>
+                <div class="author"><span itemprop="author">Fábio, Rio de Janeiro — 06 de outubro, 2012</span></div>
+              </li>
+              <li class="box comment" itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="height: auto !important">
+
+                <meta itemprop="datePublished" content="2016-06-08">
+                <meta itemprop="itemReviewed" content="Cartão de Visita">
+                <div class="five">
+                  <div class="star"></div>
+                  <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" style="float: right; color: #eee">
+                    <span itemprop="ratingValue">5</span>
+                    <meta itemprop="worstRating" content="1">
+                    <meta itemprop="bestRating" content="5">
+                  </div>
+                </div>
+                <div class="opinion">
+                  <p itemprop="description">Todas as minhas experiências com a Printi foram ótimas. O suporte que recebi para concluir meu projeto foi fundamental e a qualidade do produto fala por si.</p>
+                </div>
+                <div class="author"><span itemprop="author">Eduardo, Salvador — 05 de outubro, 2012</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Mais Opiniões - Fim-->
+
+<!--Detalhes do Produto - Inicio-->
+<section class="detalhes">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading">
+          <h2>DETALHES DO PRODUTO</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div ng-repeat="x in detalhe.detalhes" class="col-xs-12 col-sm-12 col-md-12">
+        <h3>{{x.atributo}}</h3>
+        <p>{{x.valor}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Detalhes do Produto - Fim-->
+
+<!--Imprima ja - Inicio-->
+<section class="imprima">
+  <div class="container align-center">
+    <h3>Imprima já o seu cartão de visita pelo melhor preço</h3>
+    <a ng-href="#/configurar/{{detalhe.url}}">
+      <button class="configureproduto">CONFIGURE AQUI</button>
+    </a>
+    <h4>Ainda tem dúvidas? Ligue já (11) 2388 8203</h4>
+  </div>
+</section>
+<!--Imprima ja - Fim-->

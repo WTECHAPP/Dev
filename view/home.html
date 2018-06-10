@@ -1,0 +1,150 @@
+<!--Banner Principal - Inicio-->
+<section style="background-color:#fff;">
+  <div class="home-carousel">
+    <div id="crs-banners" class="owl-carousel owl-theme">
+      <div owl-carousel-one-slide ng-repeat="x in listBanners" class="item">
+        <a href="{{x.url}}">
+          <img src="/lib/images/banner/{{x.imagem}}" alt="{{x.nome}}" title="{{x.nome}}">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Banner Principal - Fim-->
+
+<!--Produtos - Inicio-->
+<section class="portfolio">
+  <div class="container">
+    <div id="tabs" class="tabs">
+      <!--<ul style="width: 60%; margin: 0 auto;">-->
+      <ul class="nav nav-tabs">
+        <li ng-repeat="x in listProdutos" style="width: 32%; margin: 0 auto; display: block;">
+          <a href="#tabs{{x.categoriaId}}">{{x.categoria}}</a>
+        </li>
+      </ul>
+      <div jquery-ui-tabs ng-repeat="x in listProdutos" id="tabs{{x.categoriaId}}">
+        <div id="crs-ofertas" class="carousel-ofertas owl-carousel owl-theme" style="display: block; opacity: 1;">
+          <div class="row">
+            <div ng-repeat="w in x.produtos" class="col-xs-6 col-sm-6 col-md-3 portfolio-item">
+              <a ng-href="#/produto/{{w.url}}">
+                <h4>{{w.nome}}</h4>
+                <img class="img-responsive" src="/lib/images/produtos/{{w.imagem}}" alt="{{w.nome}}" title="{{w.nome}}">
+                <div class="price">
+                  <p>A partir de</p>
+                  <span>{{w.preco | currency:'R$'}}</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Produtos - Fim-->
+
+<!--Destaques - Inicio-->
+<section class="hightlights">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading">
+          <h2>Destaques</h2>
+        </div>
+        <!--<div id="crs-destaques" class="owl-carousel owl-theme">-->
+        <div id="crs-destaques" class="owl-carousel destaques-home owl-theme">
+          <div owl-carousel-three-slides ng-repeat="x in listDestaques" class="item">
+            <a href="{{x.url}}">
+              <img src="/lib/images/destaque/{{x.imagem}}" alt="{{x.titulo}}" title="{{x.titulo}}">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Destaques - Fim-->
+
+<!--Clientes - Inicio-->
+<section class="hightlights">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading">
+          <h2>MAIS DE 50 MIL CLIENTES CONFIAM NA PRINTI</h2>
+        </div>
+        <div id="crs-destaques" class="owl-carousel owl-theme">
+          <div owl-carousel-five-slides ng-repeat="x in listClientes" class="item">
+            <a href="{{x.url}}">
+              <img src="/lib/images/logos/{{x.imagem}}" alt="{{x.titulo}}" title="{{x.titulo}}">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clientes-home-navigation">
+    <a class="btn prev">Próxima</a>
+    <a class="btn next">Anterior</a>
+  </div>
+</section>
+<!--Clientes - Fim-->
+
+<!-- Depoimentos - Inicio  -->
+<section class="hightlights">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul id="crs-depoimentos" class="owl-carousel testimonials owl-theme">
+          <li owl-carousel-three-slides ng-repeat="x in listDepoimentos" class="item">
+            <div class="testimonial">
+              <div class="text">
+                <p>"{{x.depoimento}}"</p>
+              </div>
+              <div class="bottom">
+                <div class="icon">
+                  <i class="fa fa-quote-left"></i>
+                </div>
+                <div class="name-picture">
+                  <img class="" alt="" src="/lib/images/depoimentos/{{x.imagem}}">
+                  <h5>{{x.nome}}</h5>
+                  <p>{{x.posicao}}</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Depoimentos - Fim  -->
+
+<!-- Ultimas do Blog - Inicio  -->
+<section class="hightlights">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading">
+          <h2>ÚLTIMAS DO BLOG</h2>
+        </div>
+        <ul id="crs-ultimasBlog" class="owl-carousel ultimasBlogs owl-theme">
+          <li owl-carousel-four-slides ng-repeat="x in listBlogs" class="item">
+            <div class="ultimasBlog">
+              <a href="{{x.url}}" title="{{x.titulo}}" alt="{{x.titulo}}">
+                <img src="/lib/images/blog/{{x.imagem}}" title="{{x.titulo}}" alt="{{x.titulo}}">
+              </a>
+              <div class="text">
+                <a href="{{x.url}}" title="{{x.titulo}}" alt="{{x.titulo}}">
+                  <h4>{{x.titulo}}</h4>
+                </a>
+                <p>{{x.descricao}}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Ultimas do Blog - Fim  -->

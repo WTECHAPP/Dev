@@ -1,0 +1,78 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-1 col-sm-1 col-md-1">&nbsp;</div>
+      <div class="col-xs-10 col-sm-10 col-md-10">
+        <div class="mainLogin">
+          <div class="row" style="padding: 20px 0">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="box-login login first">
+                <form name="frmLogin" role="form">
+                  <div class="enter-login">
+                    <h2>Já sou cadastrado</h2>
+                    <input type="email" ng-model="dados.email" name="email" id="email" class="email" placeholder="E-mail" required>
+                    <input type="password" ng-model="dados.senha" name="senha" id="senha" class="password" placeholder="Senha" required>
+                    <button type="button" ng-disabled="frmLogin.$invalid" ng-click="logar(dados)" ng-class="{'entrar disabled':frmLogin.$invalid, 'entrar':frmLogin.$valid}">
+                      ENTRAR
+                    </button>
+                    <div id="login-error" ng-show="true === loginError.status">
+                      <ul class="common-list">
+                        <!-- ngRepeat: error in loginError.message -->
+                      </ul>
+                    </div>
+                    <div class="conectado">
+                      <input type="checkbox" id="stay-connected" name="stay-connected" ng-model="formLogin.stay_connected">
+                      <label for="stay-connected">
+                        <span>Permanecer conectado</span>
+                      </label>
+                    </div>
+                    <div class="esqueci-senha">
+                      <a href="" ng-click="goToAnotherAuth('/esqueci-minha-senha', $event)" class="forget-pass">Esqueci minha senha</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="separator"></div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6" style="border-left: 1px solid #ccc;">
+              <div class="enter-register registro login box-login">
+                <form name="frmRegistro" role="form" novalidate="">
+                  <div class="enter-login">
+                    <h2>Sou novo cliente</h2>
+                    <input type="text" name="nome" ng-model="reg.nome" class="nome" placeholder="Nome Completo" required>
+                    <input type="email" name="email" ng-model="reg.email" class="email" placeholder="E-mail" required>
+                    <input type="email" name="email_confirmation" ng-model="reg.email_confirmation" class="email_confirmation" placeholder="Confirmar E-mail" required>
+                    <input type="password" name="senha" ng-model="reg.senha" class="senha" placeholder="Senha" required|min_len:8>
+                    <div class="showpass" ng-click="showRegisterPassword = !showRegisterPassword">
+                      <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 11.7">
+                        <path d="M22 5.7C21.9 5.4 20 0 11 0S.1 5.4 0 5.7V6c.1.2 1.9 5.7 11 5.7S21.9 6.3 22 6v-.3zm-11 4.8c-7.4 0-9.4-3.8-9.8-4.7.4-.8 2.5-4.6 9.8-4.6 7.4 0 9.4 3.8 9.8 4.7-.4.8-2.4 4.6-9.8 4.6z"></path>
+                        <path d="M10.9 1.5c-2.4 0-4.3 1.9-4.3 4.3s1.9 4.3 4.3 4.3 4.3-1.9 4.3-4.3c.1-2.4-1.9-4.3-4.3-4.3zm0 7.5C9.2 9 7.8 7.6 7.8 5.8S9.2 2.6 11 2.6s3.2 1.4 3.2 3.2S12.7 9 10.9 9z"></path>
+                        <circle cx="9.6" cy="4.5" r=".8"></circle>
+                      </svg>
+                      <span class="ng-binding">Visualizar senha</span>
+                    </div>
+                    <button type="button" ng-disabled="frmRegistro.$invalid" ng-click="registrar(reg)" ng-class="{'entrar disabled':frmRegistro.$invalid, 'entrar':frmRegistro.$valid}">
+                      CADASTRAR
+                    </button>
+                    <div id="login-error" ng-show="true === registerError.status" class="ng-hide">
+                      <ul class="common-list">
+                        <!-- ngRepeat: error in registerError.message -->
+                      </ul>
+                    </div>
+                    <div class="register terms">
+                      <hr class="sep">
+                      <p>
+                        Ao cadastrar você concorda com nossos&nbsp;<a href="/termos-de-servico-e-uso-do-site" target="_blank">Termos de Uso</a>&nbsp;e nossa&nbsp;<a href="/politica-de-privacidade" target="_blank">Política de Privacidade</a>.
+                      </p>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-1 col-sm-1 col-md-1">&nbsp;</div>
+    </div>
+  </div>
+</section>

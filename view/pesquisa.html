@@ -1,0 +1,22 @@
+<!--Produtos - Inicio-->
+<section class="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="titulo">
+        Produtos
+      </div>
+      <div ng-repeat="w in listaProdutos" class="col-xs-6 col-sm-6 col-md-3 portfolio-item">
+        <a ng-href="#/{{w.url}}">
+          <h4>{{w.nome}}</h4>
+          <img class="img-responsive" src="/lib/images/produtos/{{w.imagem}}" alt="{{w.nome}}" title="{{w.nome}}">
+          <div class="price">
+            <p>A partir de</p>
+            <span>{{w.preco | currency:'R$'}}</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="espaco" id="limiteResumo"></div>
+</section>
+<!--Produtos - Fim-->
