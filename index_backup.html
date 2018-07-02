@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html ng-app="frontEnd" class="no-js" lang="pt">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <base href="/" />
+  <title>Rapi10 Gráfica 24Hrs</title>
+
+  <link href="/lib/css/printi_responsive.css" rel="stylesheet">
+  <link href="/lib/css/printi.css" rel="stylesheet">
+  <!--<link href="/lib/css/animate.css" rel="stylesheet">
+  <link href="/lib/css/geedmo.css" rel="stylesheet">-->
+  <link href="/lib/css/owl-carousel/owl.carousel.css" rel="stylesheet">
+  <link href="/lib/css/owl-carousel/owl.theme.css" rel="stylesheet">
+  <link href="/lib/css/jquery-ui.min.css" rel="stylesheet">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="/lib/js/jquery-1.11.0.min.js"><\/script>')
+  </script>
+  <script src="/lib/js/jquery.cookie.js"></script>
+  <script src="/lib/js/jquery.counterup.min.js"></script>
+  <script src="/lib/js/jquery.parallax-1.1.3.js"></script>
+  <script src="/lib/js/jquery-ui.min.js"></script>
+
+  <script src="/lib/angular/angular.min.js"></script>
+  <script src="/lib/angular/angular-route.min.js"></script>
+  <script src="/lib/angular/angular-cookies.min.js"></script>
+  <script src="/lib/angular/angular-input-masks-standalone.min.js"></script>
+  <script src="/lib/angular/angular-locale_pt-br.js"></script>
+  <script src="/lib/angular/ng-file-upload-shim.min.js"></script>
+  <script src="/lib/angular/ng-file-upload.min.js"></script>
+
+  <script src="/lib/js/owl-carousel/owl.carousel.js"></script>
+
+  <script src="/app.js" charset="utf-8"></script>
+  <script src="/js/value/config.js" charset="utf-8"></script>
+  <script src="/js/service/homeService.js" charset="utf-8"></script>
+  <script src="/js/service/detalheService.js" charset="utf-8"></script>
+  <script src="/js/service/configurarService.js" charset="utf-8"></script>
+  <script src="/js/service/carrinhoService.js" charset="utf-8"></script>
+  <script src="/js/service/carrinhoItemService.js" charset="utf-8"></script>
+  <script src="/js/service/minhaContaService.js" charset="utf-8"></script>
+  <script src="/js/service/newsletterService.js" charset="utf-8"></script>
+  <script src="/js/service/pedidoService.js" charset="utf-8"></script>
+  <script src="/js/service/pedidoItemService.js" charset="utf-8"></script>
+  <script src="/js/service/pesquisaService.js" charset="utf-8"></script>
+  <script src="/js/service/loginService.js" charset="utf-8"></script>
+  <script src="/js/controller/homeCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/detalheCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/configurarCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/carrinhoCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/carrinhoItemCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/minhaContaCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/newsletterCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/pedidoCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/pedidoItemCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/pesquisaCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/loginCtrl.js" charset="utf-8"></script>
+  <script src="/js/controller/finalizarCompraCtrl.js" charset="utf-8"></script>
+  <script src="/js/directive/directive.js" charset="utf-8"></script>
+</head>
+<body>
+  <!-- <span id="shadowbox" onClick="menuToggle()"></span>
+  <div id="all">
+    <header>
+      <!-- *** TOP ***_________________________________________________________ -->
+      <div id="top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+              <!-- Lista Meunu Topo - Inicio  -->
+              <div class="menu_topo">
+                <ul>
+                  <li class="ajuda">
+                    <a href="central-de-ajuda.html" class="hidden-sm hidden-xs">
+                      <span>Central de ajuda</span>
+                    </a>
+                    <p>&nbsp;</p>
+                  </li>
+                  <li class="login" ng-controller="loginCtrl">
+                    <div ng-show="buscarUsuarioLogado()!=null">
+                      <a ng-href="#/minhaConta">
+                        <p>Olá {{buscarUsuarioLogado()}}</p>
+                      </a>
+                      <p>&nbsp;</p>
+                    </div>
+                    <div ng-show='buscarUsuarioLogado()==null'>
+                      <a ng-href="#/login">
+                        <span class="hidden-xs">Entre</span>
+                      </a>
+                      <p style="padding: 0 2px">ou</p>
+                      <a ng-href="#/login">
+                        <span class="hidden-xs">Cadastre-se</span>
+                      </a>
+                      <p>&nbsp;</p>
+                    </div>
+                  </li>
+                  <li class="cart">
+                    <a ng-href="#/carrinho/">
+                      <span class="hidden-xs">Carrinho</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Lista Meunu Topo - Fim  -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- *** TOP END *** -->
+
+      <!-- *** NAVBAR ***  _________________________________________________________ -->
+      <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+        <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+          <!-- Menu DropDown Full - Width -->
+          <div style="max-width:1120px; margin:0 auto; padding:10px 0;">
+            <nav id="cbp-hrmenu" class="col-xs-12 col-md-4 cbp-hrmenu" style="padding:0;">
+              <ul>
+                <li class="col-xs-4 col-md-5 logo" style="padding:0;">
+                  <!-- Logo - Inicio -->
+                  <button id="navBtn" onclick="goHome()">
+                    <a class="navbar-brand home" ng-href="#">
+                      <svg id="Camada_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.4 225.6" class="hidden-xs hidden-sm logofull" role="img">
+                        Printi - Gráfica Online
+                        <style>
+                        .stz00 {
+                          fill: #414042;
+                        }
+
+                        .stz1 {
+                          fill: url(#SVGID_1_);
+                        }
+                        </style>
+                        <path class="stz00" d="M0 225.6V77.9h9.5l4 9.5s7.3-2.6 15-5.4c7.7-2.8 15.7-4.1 21.6-4.1 6 0 12 1.1 16.3 4.1 4.4 2.9 6.9 6.8 9.1 11.4 4.4 9.2 4.4 19.5 4.4 32 0 24.3-3.8 40.6-14 47-4.5 2.8-11.6 3.9-17.2 3.9-5.5 0-11.8-.6-18.8-1.9-7-1.3-11-2-16.5-4.2v55.6H0zm48.8-62.3c6.3 0 11.1-2.8 14.1-8s3.5-15.8 3.5-29.9c0-11.7-1.7-21.4-5.4-27.1-2.7-4.1-6.8-6.8-13.5-6.8-10.4 0-20.2 2.5-33.9 8.1l-.1 59.6c9.5 4.1 23.1 4.1 35.3 4.1m61-63.7c13.7-5.6 23.7-8.1 33.9-8.1 6.4 0 16.3 1.4 16.3 1.4V80.6c-3.8-1.9-8.8-2.7-13.6-2.7-5.9 0-14 1.2-21.6 4.1-7.7 2.9-15 5.4-15 5.4l-4-9.5h-9.5v97.6h13.6l-.1-75.9zm273.7-39.3v-9.5c0-2.8 1.4-4.1 4.1-4.1h8.1c2.6 0 4.1 1.3 4.1 4.1v9.5c0 2.6-1.4 4.1-5.4 4.1h-6.9c-1.2-.1-4-1.6-4-4.1m1.4 17.6h13.5v97.5h-13.5zM176.3 60.3v-9.5c0-2.8 1.4-4.1 4.1-4.1h8.1c2.6 0 4.1 1.3 4.1 4.1v9.5c0 2.6-1.4 4.1-5.4 4.1h-6.9c-1.2-.1-4-1.6-4-4.1m1.4 17.6h13.6v97.5h-13.6zm85.2 0c-5.1 0-14.4 1.4-21.6 4.1-7.6 2.8-15 5.4-15 5.4l-4-9.5h-9.5v97.6h13.5V99.6c13.7-5.6 23.7-8.1 33.9-8.1 6.8 0 10.8 2.7 13.5 6.8 3.1 4.7 4 10.2 4 19v58.3h13.6v-64.4c0-7.5-2-22.6-12.2-29.1-.8-.5-1.6-1-2.6-1.4-3.5-1.8-8.1-2.8-13.6-2.8m42 13.6v-9.6l17.6-4 4.1-28.5h9.5v28.5h28.4v13.6h-28.4v45.4c-.2 11.4 2.5 20.2 9.8 24.1 5.7 2.8 18.7 2.3 18.7 2.3v12.2H347c-15.2 0-24.9-13.6-24.4-35.3V91.5h-17.7z" />
+                        <radialGradient id="SVGID_1_" cx="428.239" cy="4.363" r="119.973" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-color="#85b5e0" />
+                          <stop offset=".099" stop-color="#6aa7e1" />
+                          <stop offset=".502" stop-color="#006ee3" />
+                          <stop offset=".68" stop-color="#0069e3" />
+                          <stop offset=".879" stop-color="#005ce3" />
+                          <stop offset="1" stop-color="#0050e3" />
+                        </radialGradient>
+                        <path class="stz1" d="M456 68.6c-.2 15-12.1 27.1-27 27.7-2.2.2-3.9 2.1-3.9 4.4v23.6c0 2.4 2 4.4 4.4 4.4h.6c33-1.8 59.2-29.2 59.2-62.6V4.4c0-2.4-2-4.4-4.4-4.4h-55.4c-2.4 0-4.4 2-4.4 4.4V60c0 2.4 2 4.4 4.4 4.4h22.1c2.3 0 4.2 1.8 4.4 4.1v.1z" />
+                      </svg>
+                      <!-- Logo SVG - Fim -->
+                      <svg id="Camada_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.4 225.6" class="visible-xs visible-sm logofull" role="img">
+                        Printi - Gráfica Online
+                        <style>
+                        .stz00 {
+                          fill: #414042;
+                        }
+
+                        .stz1 {
+                          fill: url(#SVGID_1_);
+                        }
+                        </style>
+                        <path class="stz00" d="M0 225.6V77.9h9.5l4 9.5s7.3-2.6 15-5.4c7.7-2.8 15.7-4.1 21.6-4.1 6 0 12 1.1 16.3 4.1 4.4 2.9 6.9 6.8 9.1 11.4 4.4 9.2 4.4 19.5 4.4 32 0 24.3-3.8 40.6-14 47-4.5 2.8-11.6 3.9-17.2 3.9-5.5 0-11.8-.6-18.8-1.9-7-1.3-11-2-16.5-4.2v55.6H0zm48.8-62.3c6.3 0 11.1-2.8 14.1-8s3.5-15.8 3.5-29.9c0-11.7-1.7-21.4-5.4-27.1-2.7-4.1-6.8-6.8-13.5-6.8-10.4 0-20.2 2.5-33.9 8.1l-.1 59.6c9.5 4.1 23.1 4.1 35.3 4.1m61-63.7c13.7-5.6 23.7-8.1 33.9-8.1 6.4 0 16.3 1.4 16.3 1.4V80.6c-3.8-1.9-8.8-2.7-13.6-2.7-5.9 0-14 1.2-21.6 4.1-7.7 2.9-15 5.4-15 5.4l-4-9.5h-9.5v97.6h13.6l-.1-75.9zm273.7-39.3v-9.5c0-2.8 1.4-4.1 4.1-4.1h8.1c2.6 0 4.1 1.3 4.1 4.1v9.5c0 2.6-1.4 4.1-5.4 4.1h-6.9c-1.2-.1-4-1.6-4-4.1m1.4 17.6h13.5v97.5h-13.5zM176.3 60.3v-9.5c0-2.8 1.4-4.1 4.1-4.1h8.1c2.6 0 4.1 1.3 4.1 4.1v9.5c0 2.6-1.4 4.1-5.4 4.1h-6.9c-1.2-.1-4-1.6-4-4.1m1.4 17.6h13.6v97.5h-13.6zm85.2 0c-5.1 0-14.4 1.4-21.6 4.1-7.6 2.8-15 5.4-15 5.4l-4-9.5h-9.5v97.6h13.5V99.6c13.7-5.6 23.7-8.1 33.9-8.1 6.8 0 10.8 2.7 13.5 6.8 3.1 4.7 4 10.2 4 19v58.3h13.6v-64.4c0-7.5-2-22.6-12.2-29.1-.8-.5-1.6-1-2.6-1.4-3.5-1.8-8.1-2.8-13.6-2.8m42 13.6v-9.6l17.6-4 4.1-28.5h9.5v28.5h28.4v13.6h-28.4v45.4c-.2 11.4 2.5 20.2 9.8 24.1 5.7 2.8 18.7 2.3 18.7 2.3v12.2H347c-15.2 0-24.9-13.6-24.4-35.3V91.5h-17.7z" />
+                        <radialGradient id="SVGID_1_" cx="428.239" cy="4.363" r="119.973" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-color="#85b5e0" />
+                          <stop offset=".099" stop-color="#6aa7e1" />
+                          <stop offset=".502" stop-color="#006ee3" />
+                          <stop offset=".68" stop-color="#0069e3" />
+                          <stop offset=".879" stop-color="#005ce3" />
+                          <stop offset="1" stop-color="#0050e3" />
+                        </radialGradient>
+                        <path class="stz1" d="M456 68.6c-.2 15-12.1 27.1-27 27.7-2.2.2-3.9 2.1-3.9 4.4v23.6c0 2.4 2 4.4 4.4 4.4h.6c33-1.8 59.2-29.2 59.2-62.6V4.4c0-2.4-2-4.4-4.4-4.4h-55.4c-2.4 0-4.4 2-4.4 4.4V60c0 2.4 2 4.4 4.4 4.4h22.1c2.3 0 4.2 1.8 4.4 4.1v.1z" />
+                      </svg>
+                    </a>
+                  </button>
+                  <!-- Logo - Fim -->
+                </li>
+
+                <li class="col-xs-4 col-md-3 menu" style="padding:0;">
+                  <!-- Menu - Inicio -->
+                  <button id="navBtn" onclick="menuToggle()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.4 13.4" class="menu_icon">
+                      <path d="M18.7 0H.8C.3 0 0 .3 0 .8c0 .4.3.8.8.8h17.9c.4 0 .8-.3.8-.8-.1-.5-.4-.8-.8-.8zm0 5.9H.8c-.5 0-.8.4-.8.8s.3.8.8.8h17.9c.4 0 .8-.3.8-.8-.1-.4-.4-.8-.8-.8zm0 6H.8c-.4 0-.8.3-.8.8s.3.8.8.8h17.9c.4 0 .8-.3.8-.8s-.4-.8-.8-.8z" />
+                    </svg>
+                    <span class="menu_text">Menu</span>
+                  </button>
+                  <!-- Menu - Fim -->
+                </li>
+                <li class="col-xs-4 col-md-4 produtos" style="padding:0;">
+                  <!-- Produtos - Inicio -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.9 7.2" id="arrow-prod"><path d="M11.7.2L6.5 5.4 1.3.2C1-.1.5-.1.2.2c-.3.3-.3.8 0 1.1L5.9 7c.3.3.8.3 1.1 0l5.7-5.7c.3-.3.3-.8 0-1.1-.3-.3-.8-.3-1 0z"></path></svg>
+                  <a href="#">Produtos</a>
+                  <div class="cbp-hrsub">
+                    <div class="cbp-hrsub-inner">
+                      <div id="verticalTab">
+                        <ul class="resp-tabs-list">
+                          <li>Mais Vendidos</li>
+                          <!--<li>Papelaria </li>
+                          <li>Promocionais</li>
+                          <li>Banner e Cartazes</li>
+                          <li>Ponto de Venda</li>
+                          <li>Revistas e Catálogos</li>
+                          <li>Adesivos e Rótulos</li>
+                          <li>Brindes</li>
+                          <li>Sinalização</li>-->
+                        </ul>
+                        <div class="resp-tabs-container">
+                          <div>
+                            <h3>Mais Vendidos</h3>
+                            <ul class="lista-produtos">
+                              <li> <a href="#/produto/cartao-de-visita">Cartão de Visita</a> </li>
+                              <li> <a href="#/produto/banner">Banner</a> </li>
+                              <li> <a href="#/produto/flyer">Flyer</a> </li>
+                              <li> <a href="#/produto/faixas">Faixas</a> </li>
+                              <!--<li> <a href="/cartao-de-visita">Cartão de Visita</a> </li>
+                              <li> <a href="/cartao-postal">Cartão Postal</a> </li>
+                              <li> <a href="/cartaz">Cartaz</a> </li>-->
+                            </ul>
+                            <!--<ul class="lista-produtos">
+                              <li> <a href="/chaveiro">Chaveiro</a> </li>
+                              <li> <a href="/etiquetas">Etiquetas</a> </li>
+                              <li> <a href="/flyer">Flyer</a> </li>
+                              <li> <a href="/folder">Folder</a> </li>
+                              <li> <a href="/panfletos">Panfletos</a> </li>
+                              <li> <a href="/pasta">Pasta</a> </li>
+                              <li> <a href="/placa">Placa</a> </li>
+                            </ul>
+                            <ul class="lista-produtos">
+                              <li> <a href="/posters">Pôster</a> </li>
+                              <li> <a href="/tag">Tag</a> </li>
+                            </ul>-->
+                            <span class="featured-img">
+                              <a href="/flyer" id="featured-img">
+                                <img src="/lib/images/mais-vendidos-flyer-vitrine.jpg" title="Os mais vendidos da gráfica Printi: flyer" alt="Os mais vendidos da gráfica Printi: flyer" />
+                              </a>
+                            </span>
+                          </div>
+                          <!--<div>
+                            <h3>Papelaria</h3>
+                            <ul class="lista-produtos">
+                              <li> <a href="/agenda-personalizada">Agenda</a> </li>
+                              <li> <a href="/bloco-de-notas">Bloco de Notas</a> </li>
+                              <li> <a href="/calendario-de-mesa">Calendário de Mesa</a> </li>
+                              <li> <a href="/calendario-de-parede">Calendário de Parede</a> </li>
+                              <li> <a href="/cartao-de-visita">Cartão de Visita</a> </li>
+                              <li> <a href="/envelope">Envelope</a> </li>
+                              <li> <a href="/etiquetas">Etiquetas</a> </li>
+                            </ul>
+                            <ul class="lista-produtos">
+                              <li> <a href="/papel-timbrado">Papel Timbrado</a> </li>
+                              <li> <a href="/pasta">Pasta</a> </li>
+                              <li> <a href="/receituario">Receituário</a> </li>
+                            </ul>
+                            <span class="featured-img">
+                              <a href="/cartao-de-visita" id="featured-img">
+                                <img src="/lib/images/papelaria-cartao-visita-vitrine.jpg" title="Destaque do cartão de visita na grafica online Printi" alt="Destaque do cartão de visita na grafica online Printi">
+                              </a>
+                            </span>
+                          </div>
+                          <div>
+                            <h3>Promocionais</h3>
+                            <ul class="lista-produtos">
+                              <li> <a href="/agenda-personalizada">Agenda</a> </li>
+                              <li> <a href="/bloco-de-notas">Bloco de Notas</a> </li>
+                              <li> <a href="/calendario-de-mesa">Calendário de Mesa</a> </li>
+                              <li> <a href="/calendario-de-parede">Calendário de Parede</a> </li>
+                              <li> <a href="/cartao-de-visita">Cartão de Visita</a> </li>
+                              <li> <a href="/envelope">Envelope</a> </li>
+                              <li> <a href="/etiquetas">Etiquetas</a> </li>
+                            </ul>
+                            <ul class="lista-produtos">
+                              <li> <a href="/papel-timbrado">Papel Timbrado</a> </li>
+                              <li> <a href="/pasta">Pasta</a> </li>
+                              <li> <a href="/receituario">Receituário</a> </li>
+                            </ul>
+                            <span class="featured-img">
+                              <a href="/cartao-de-visita" id="featured-img">
+                                <img src="/lib/images/papelaria-cartao-visita-vitrine.jpg" title="Destaque do cartão de visita na grafica online Printi" alt="Destaque do cartão de visita na grafica online Printi">
+                              </a>
+                            </span>
+                          </div>
+                          <div>
+                            <h3>Banner e Cartazes</h3>
+                            <ul class="lista-produtos">
+                              <li> <a href="/agenda-personalizada">Agenda</a> </li>
+                              <li> <a href="/bloco-de-notas">Bloco de Notas</a> </li>
+                              <li> <a href="/calendario-de-mesa">Calendário de Mesa</a> </li>
+                              <li> <a href="/calendario-de-parede">Calendário de Parede</a> </li>
+                              <li> <a href="/cartao-de-visita">Cartão de Visita</a> </li>
+                              <li> <a href="/envelope">Envelope</a> </li>
+                              <li> <a href="/etiquetas">Etiquetas</a> </li>
+                            </ul>
+                            <ul class="lista-produtos">
+                              <li> <a href="/papel-timbrado">Papel Timbrado</a> </li>
+                              <li> <a href="/pasta">Pasta</a> </li>
+                              <li> <a href="/receituario">Receituário</a> </li>
+                            </ul>
+                            <span class="featured-img">
+                              <a href="/cartao-de-visita" id="featured-img">
+                                <img src="/lib/images/papelaria-cartao-visita-vitrine.jpg" title="Destaque do cartão de visita na grafica online Printi" alt="Destaque do cartão de visita na grafica online Printi">
+                              </a>
+                            </span>
+                          </div>
+                          <div>
+                            <h3>Ponto de Venda</h3>
+                            <ul class="lista-produtos">
+                              <li> <a href="/agenda-personalizada">Agenda</a> </li>
+                              <li> <a href="/bloco-de-notas">Bloco de Notas</a> </li>
+                              <li> <a href="/calendario-de-mesa">Calendário de Mesa</a> </li>
+                              <li> <a href="/calendario-de-parede">Calendário de Parede</a> </li>
+                              <li> <a href="/cartao-de-visita">Cartão de Visita</a> </li>
+                              <li> <a href="/envelope">Envelope</a> </li>
+                              <li> <a href="/etiquetas">Etiquetas</a> </li>
+                            </ul>
+                            <ul class="lista-produtos">
+                              <li> <a href="/papel-timbrado">Papel Timbrado</a> </li>
+                              <li> <a href="/pasta">Pasta</a> </li>
+                              <li> <a href="/receituario">Receituário</a> </li>
+                            </ul>
+                            <span class="featured-img">
+                              <a href="/cartao-de-visita" id="featured-img">
+                                <img src="/lib/images/papelaria-cartao-visita-vitrine.jpg" title="Destaque do cartão de visita na grafica online Printi" alt="Destaque do cartão de visita na grafica online Printi">
+                              </a>
+                            </span>
+                          </div>
+                          <div>
+                            <h3>Revistas e Catálogos</h3>
+                            <ul class="lista-produtos">
+                              <li> <a href="/agenda-personalizada">Agenda</a> </li>
+                              <li> <a href="/bloco-de-notas">Bloco de Notas</a> </li>
+                              <li> <a href="/calendario-de-mesa">Calendário de Mesa</a> </li>
+                              <li> <a href="/calendario-de-parede">Calendário de Parede</a> </li>
+                              <li> <a href="/cartao-de-visita">Cartão de Visita</a> </li>
+                              <li> <a href="/envelope">Envelope</a> </li>
+                              <li> <a href="/etiquetas">Etiquetas</a> </li>
+                            </ul>
+                            <ul class="lista-produtos">
+                              <li> <a href="/papel-timbrado">Papel Timbrado</a> </li>
+                              <li> <a href="/pasta">Pasta</a> </li>
+                              <li> <a href="/receituario">Receituário</a> </li>
+                            </ul>
+                            <span class="featured-img">
+                              <a href="/cartao-de-visita" id="featured-img">
+                                <img src="/lib/images/papelaria-cartao-visita-vitrine.jpg" title="Destaque do cartão de visita na grafica online Printi" alt="Destaque do cartão de visita na grafica online Printi">
+                              </a>
+                            </span>
+                          </div>
+                          <div>
+                            <h3>Adesivos e Rótulos</h3>
+                            <ul class="lista-produtos">
+                              <li> <a href="/agenda-personalizada">Agenda</a> </li>
+                              <li> <a href="/bloco-de-notas">Bloco de Notas</a> </li>
+                              <li> <a href="/calendario-de-mesa">Calendário de Mesa</a> </li>
+                              <li> <a href="/calendario-de-parede">Calendário de Parede</a> </li>
+                              <li> <a href="/cartao-de-visita">Cartão de Visita</a> </li>
+                              <li> <a href="/envelope">Envelope</a> </li>
+                              <li> <a href="/etiquetas">Etiquetas</a> </li>
+                            </ul>
+                            <ul class="lista-produtos">
+                              <li> <a href="/papel-timbrado">Papel Timbrado</a> </li>
+                              <li> <a href="/pasta">Pasta</a> </li>
+                              <li> <a href="/receituario">Receituário</a> </li>
+                            </ul>
+                            <span class="featured-img">
+                              <a href="/cartao-de-visita" id="featured-img">
+                                <img src="/lib/images/papelaria-cartao-visita-vitrine.jpg" title="Destaque do cartão de visita na grafica online Printi" alt="Destaque do cartão de visita na grafica online Printi">
+                              </a>
+                            </span>
+                          </div>
+                          <div>
+                            <h3>Brindes</h3>
+                            <ul class="lista-produtos">
+                              <li> <a href="/agenda-personalizada">Agenda</a> </li>
+                              <li> <a href="/bloco-de-notas">Bloco de Notas</a> </li>
+                              <li> <a href="/calendario-de-mesa">Calendário de Mesa</a> </li>
+                              <li> <a href="/calendario-de-parede">Calendário de Parede</a> </li>
+                              <li> <a href="/cartao-de-visita">Cartão de Visita</a> </li>
+                              <li> <a href="/envelope">Envelope</a> </li>
+                              <li> <a href="/etiquetas">Etiquetas</a> </li>
+                            </ul>
+                            <ul class="lista-produtos">
+                              <li> <a href="/papel-timbrado">Papel Timbrado</a> </li>
+                              <li> <a href="/pasta">Pasta</a> </li>
+                              <li> <a href="/receituario">Receituário</a> </li>
+                            </ul>
+                            <span class="featured-img">
+                              <a href="/cartao-de-visita" id="featured-img">
+                                <img src="/lib/images/papelaria-cartao-visita-vitrine.jpg" title="Destaque do cartão de visita na grafica online Printi" alt="Destaque do cartão de visita na grafica online Printi">
+                              </a>
+                            </span>
+                          </div>
+                          <div>
+                            <h3>Sinalização</h3>
+                            <ul class="lista-produtos">
+                              <li> <a href="/agenda-personalizada">Agenda</a> </li>
+                              <li> <a href="/bloco-de-notas">Bloco de Notas</a> </li>
+                              <li> <a href="/calendario-de-mesa">Calendário de Mesa</a> </li>
+                              <li> <a href="/calendario-de-parede">Calendário de Parede</a> </li>
+                              <li> <a href="/cartao-de-visita">Cartão de Visita</a> </li>
+                              <li> <a href="/envelope">Envelope</a> </li>
+                              <li> <a href="/etiquetas">Etiquetas</a> </li>
+                            </ul>
+                            <ul class="lista-produtos">
+                              <li> <a href="/papel-timbrado">Papel Timbrado</a> </li>
+                              <li> <a href="/pasta">Pasta</a> </li>
+                              <li> <a href="/receituario">Receituário</a> </li>
+                            </ul>
+                            <span class="featured-img">
+                              <a href="/cartao-de-visita" id="featured-img">
+                                <img src="/lib/images/papelaria-cartao-visita-vitrine.jpg" title="Destaque do cartão de visita na grafica online Printi" alt="Destaque do cartão de visita na grafica online Printi">
+                              </a>
+                            </span>
+                          </div>-->
+                        </div>
+                      </div>
+                    </div><!-- /cbp-hrsub-inner -->
+                  </div><!-- /cbp-hrsub -->
+                  <!-- Produtos - Fim -->
+                </li>
+              </ul>
+            </nav>
+            <nav id="cbp-hrmenu" class="col-xs-12 col-md-8 cbp-hrmenu" style="padding:0;">
+              <ul>
+                <li class="col-xs-8 col-md-8 motor-busca" style="padding:0;">
+                  <!-- Busca - Inicio -->
+                  <div class="search navbar-left" id="search">
+                    <form class="navbar-form" role="search">
+                      <div class="input-group">
+                        <input type="text" id="pesquisaSite" name="pesquisaSite" class="form-control" placeholder="Procure por produtos ou informações">
+                        <span class="input-group-btn">
+                          <button type="submit" class="btn btn-template-main" onclick="pesquisar();">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 25.6"><path d="M9.9 4.3c-3.1 0-5.6 2.5-5.6 5.6 0 .4.3.8.8.8.4 0 .8-.3.8-.8 0-2.3 1.9-4.1 4.1-4.1.4 0 .8-.3.8-.8-.2-.4-.5-.7-.9-.7z" /><path d="M25.3 23.9l-7.7-7.7c1.4-1.8 2.2-3.9 2.2-6.3 0-2.6-1-5.1-2.9-7C15 1 12.5 0 9.9 0c-2.6 0-5.1 1-7 2.9a9.84 9.84 0 0 0 0 14c1.9 1.9 4.4 2.9 7 2.9 2.3 0 4.5-.8 6.3-2.2l7.7 7.7c.2.2.5.3.7.3.3 0 .5-.1.7-.3.4-.4.4-1 0-1.4zM4 15.8C.7 12.6.7 7.2 4 4c1.6-1.6 3.7-2.5 5.9-2.5s4.3.9 5.9 2.5c1.6 1.6 2.5 3.7 2.5 5.9s-.9 4.3-2.5 5.9c-1.6 1.6-3.7 2.5-5.9 2.5-2.3 0-4.4-.9-5.9-2.5z" /></svg>
+                          </button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- Busca - Fim -->
+                </li>
+                <!--<li class="col-xs-4 col-md-4 atendimento" style="padding:0;">
+                <a href="#">Atendimento Exclusivo</a>
+              </li>-->
+            </ul>
+          </nav>
+        </div>
+        <!-- -->
+      </div>
+      <!-- -->
+    </div>
+    <!-- *** NAVBAR END *** -->
+  </header>
+  <nav class="mobile">
+    <button id="navBtn" onClick="menuToggle()">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+    <ul id="listMenu">
+      <li>
+        <a href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="44 40 680 289" class="logo-lateral">
+            <path d="M44.7 350.2V145.6h13.1l5.6 13.1s10.1-3.6 20.7-7.5 21.7-5.6 30-5.6 16.6 1.6 22.6 5.6c6.1 4 9.6 9.4 12.6 15.7 6.1 12.7 6.2 27 6.2 44.4 0 33.7-5.2 56.2-19.4 65.1-6.2 3.9-16.1 5.4-23.8 5.4-7.6 0-16.3-.8-26-2.7-9.7-1.9-15.3-2.8-22.8-5.9v77H44.7zm67.6-86.3c8.8 0 15.4-3.9 19.5-11.2 4.1-7.2 4.9-21.9 4.9-41.4 0-16.3-2.3-29.7-7.5-37.6-3.7-5.6-9.4-9.4-18.8-9.4-14.4 0-27.9 3.5-46.9 11.3l-.1 82.6c13.2 5.7 32 5.7 48.9 5.7m84.5-88.3c19-7.7 32.8-11.3 47-11.3 8.9 0 22.5 1.9 22.5 1.9v-16.9c-5.2-2.6-12.2-3.8-18.9-3.8-8.2 0-19.4 1.7-30 5.6-10.6 4-20.7 7.5-20.7 7.5l-5.6-13.1H178v135.2h18.8V175.6zm379.3-54.4V108c0-3.9 1.9-5.6 5.6-5.6H593c3.6 0 5.6 1.8 5.6 5.6v13.1c0 3.5-2 5.6-7.5 5.6h-9.5c-1.7.1-5.5-2-5.5-5.5m1.9 24.4h18.8v135.1H578zm-289.1-24.4V108c0-3.9 1.9-5.6 5.6-5.6h11.3c3.6 0 5.6 1.8 5.6 5.6v13.1c0 3.5-2 5.6-7.5 5.6h-9.5c-1.6.1-5.5-2-5.5-5.5m1.9 24.4h18.8v135.1h-18.8zm118.1 0c-7.1 0-19.9 1.9-29.9 5.6-10.6 3.9-20.8 7.5-20.8 7.5l-5.6-13.1h-13.1v135.2h18.8V175.6c19-7.8 32.9-11.3 47-11.3 9.5 0 15 3.8 18.7 9.4 4.3 6.5 5.6 14.2 5.6 26.3v80.7h18.8l.1-89.2c0-10.3-2.7-31.3-17-40.4-1.1-.7-2.3-1.4-3.6-2-5-2.2-11.3-3.5-19-3.5m58.3 18.7v-13.2l24.4-5.5 5.6-39.4h13.1v39.4h39.4v18.8h-39.4v62.9c-.3 15.8 3.4 28 13.6 33.4 7.9 3.9 25.9 3.2 25.9 3.2v16.9h-24.4c-21 0-34.5-18.8-33.8-48.9v-67.5h-24.4zm209.3-31.6c-.2 20.8-16.7 37.6-37.3 38.4-3.1.3-5.4 2.9-5.4 6.1v32.6c0 3.4 2.7 6.1 6.1 6.1.3 0 .5 0 .8-.1 45.8-2.5 82.1-40.4 82.1-86.8V43.7c0-3.4-2.7-6.1-6.1-6.1h-76.8c-3.4 0-6.1 2.7-6.1 6.1v77c0 3.4 2.7 6.1 6.1 6.1h30.6c3.2 0 5.9 2.5 6.1 5.7-.1.1-.1.2-.1.2"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <h3>Informações</h3>
+        <ul>
+          <li><a href="https://www.printi.com.br/central-de-ajuda">Central de Ajuda</a></li>
+          <li><a href="https://www.printi.com.br/blog">Blog</a></li>
+          <li><a href="https://www.printi.com.br/atendimento-exclusivo">Atendimento Exclusivo</a></li>
+        </ul>
+      </li>
+      <li>
+        <h3>Ferramentas</h3>
+        <ul>
+          <li><a href="https://www.printi.com.br/download-de-gabaritos">Gabaritos</a></li>
+          <li><a href="https://www.printi.com.br/guia-de-impressao">Guia de Impressão</a></li>
+          <li><a href="https://www.printi.com.br/glossario">Glossário</a></li>
+          <li><a href="https://www.printi.com.br/montagem-do-arquivo">Montagem do arquivo</a></li>
+          <li><a href="https://www.printi.com.br/tutoriais">Tutoriais</a></li>
+        </ul>
+      </li>
+      <li class="nopadding border"></li>
+      <li>
+        <h3>Institucional</h3>
+        <ul class="menuin">
+          <li><a href="https://www.printi.com.br/sobre-printi">Sobre a Printi</a></li>
+          <li><a href="https://www.printi.com.br/printi-na-imprensa">Printi na Imprensa</a></li>
+          <li><a href="https://www.printi.com.br/trabalhe-conosco">Trabalhe Conosco</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- -->
+  <!-- -->
+  <div ng-view>
+  </div>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="col-xs-12 col-sm-4 col-md-4 footer">
+        <ul class="footer">
+          <li class="nav">
+            <ul>
+              <li id="copyright" class="copyright">
+                <ul>
+                  <li>&copy; 2016 - Printi. Todos os direitos reservados</li>
+                  <li class="logo">
+                    <a href="http://www.printi.com.br" border="0">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="44 40 680 289" class="logofull">
+                        <path d="M44.7 350.2V145.6h13.1l5.6 13.1s10.1-3.6 20.7-7.5 21.7-5.6 30-5.6 16.6 1.6 22.6 5.6c6.1 4 9.6 9.4 12.6 15.7 6.1 12.7 6.2 27 6.2 44.4 0 33.7-5.2 56.2-19.4 65.1-6.2 3.9-16.1 5.4-23.8 5.4-7.6 0-16.3-.8-26-2.7-9.7-1.9-15.3-2.8-22.8-5.9v77H44.7zm67.6-86.3c8.8 0 15.4-3.9 19.5-11.2 4.1-7.2 4.9-21.9 4.9-41.4 0-16.3-2.3-29.7-7.5-37.6-3.7-5.6-9.4-9.4-18.8-9.4-14.4 0-27.9 3.5-46.9 11.3l-.1 82.6c13.2 5.7 32 5.7 48.9 5.7m84.5-88.3c19-7.7 32.8-11.3 47-11.3 8.9 0 22.5 1.9 22.5 1.9v-16.9c-5.2-2.6-12.2-3.8-18.9-3.8-8.2 0-19.4 1.7-30 5.6-10.6 4-20.7 7.5-20.7 7.5l-5.6-13.1H178v135.2h18.8V175.6zm379.3-54.4V108c0-3.9 1.9-5.6 5.6-5.6H593c3.6 0 5.6 1.8 5.6 5.6v13.1c0 3.5-2 5.6-7.5 5.6h-9.5c-1.7.1-5.5-2-5.5-5.5m1.9 24.4h18.8v135.1H578zm-289.1-24.4V108c0-3.9 1.9-5.6 5.6-5.6h11.3c3.6 0 5.6 1.8 5.6 5.6v13.1c0 3.5-2 5.6-7.5 5.6h-9.5c-1.6.1-5.5-2-5.5-5.5m1.9 24.4h18.8v135.1h-18.8zm118.1 0c-7.1 0-19.9 1.9-29.9 5.6-10.6 3.9-20.8 7.5-20.8 7.5l-5.6-13.1h-13.1v135.2h18.8V175.6c19-7.8 32.9-11.3 47-11.3 9.5 0 15 3.8 18.7 9.4 4.3 6.5 5.6 14.2 5.6 26.3v80.7h18.8l.1-89.2c0-10.3-2.7-31.3-17-40.4-1.1-.7-2.3-1.4-3.6-2-5-2.2-11.3-3.5-19-3.5m58.3 18.7v-13.2l24.4-5.5 5.6-39.4h13.1v39.4h39.4v18.8h-39.4v62.9c-.3 15.8 3.4 28 13.6 33.4 7.9 3.9 25.9 3.2 25.9 3.2v16.9h-24.4c-21 0-34.5-18.8-33.8-48.9v-67.5h-24.4zm209.3-31.6c-.2 20.8-16.7 37.6-37.3 38.4-3.1.3-5.4 2.9-5.4 6.1v32.6c0 3.4 2.7 6.1 6.1 6.1.3 0 .5 0 .8-.1 45.8-2.5 82.1-40.4 82.1-86.8V43.7c0-3.4-2.7-6.1-6.1-6.1h-76.8c-3.4 0-6.1 2.7-6.1 6.1v77c0 3.4 2.7 6.1 6.1 6.1h30.6c3.2 0 5.9 2.5 6.1 5.7-.1.1-.1.2-.1.2" />
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 footer">
+        <ul class="footer">
+          <li class="nav">
+            <ul>
+              <li class="links">
+                <ul>
+                  <li class="lnkblk">
+                    <ul>
+                      <li class="fblk"><a href="/central-de-ajuda">Contato</a></li>
+                      <li class="fblk"><a href="/blog">Blog</a></li>
+                      <li class="fblk"><a href="/download-de-gabaritos">Gabaritos</a></li>
+                      <li class="fblk"><a href="/tutoriais">Tutoriais</a></li>
+                    </ul>
+                  </li>
+                  <li class="lnkblk">
+                    <ul>
+                      <li class="fblk"><a href="/montagem-do-arquivo">Montagem de Arquivos</a></li>
+                      <li class="fblk"><a href="/guia-de-impressao">Guia de impressão</a></li>
+                      <li class="fblk"><a href="/glossario">Glossário</a></li>
+                      <li class="fblk"><a href="/printi-na-imprensa">Printi na Imprensa</a></li>
+                    </ul>
+                  </li>
+                  <li class="lnkblk">
+                    <ul>
+                      <li class="fblk last"><a href="#/politicadeprivacidade">Política de Privacidade</a></li>
+                      <li class="fblk last"><a href="/termos-de-servico-e-uso-do-site">Termos de uso</a></li>
+                      <li class="fblk"><a href="/trabalhe-conosco">Trabalhe Conosco</a></li>
+                      <li class="fblk"><a href="/sitemap">Mapa do Site</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="partners">
+      <div class="container">
+        <div class="col-md-6 col-sm-12 col-xs-12 final" style="padding:0">
+          <ul>
+            <li class="safe">
+              <ul>
+                <li class="title">Site Seguro</li>
+                <li class="i-certisign">
+                  <a href="#">
+                    <span>Certisign</span>
+                  </a>
+                </li>
+                <!--<li class="i-norton norton">
+                <img name="seal" src="https://seal.websecurity.norton.com/getseal?at=0&amp;sealid=2&amp;dn=www.printi.com.br&amp;lang=pt&amp;tpt=transparent" oncontextmenu="return false;" usemap="#sealmap_small" alt="" border="0">
+              </li>-->
+              <li class="i-google">
+                <a href="//www.google.com/safebrowsing/diagnostic?site=https://www.printi.com.br/" target="_blank">
+                  <span class="google-badge">Google</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="partner">
+            <ul>
+              <li class="title">Apoio</li>
+              <li class="i-partner">
+                <a href="https://endeavor.org.br/" target="_blank"></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12 final" style="padding:0">
+        <ul>
+          <li class="payment">
+            <ul>
+              <li class="title">
+                Formas de Pagamento
+              </li>
+              <li class="i-visa">Visa</li>
+              <li class="i-mastercard">MasterCard</li>
+              <li class="i-elo">Elo</li>
+              <li class="i-americanexpress">American Express</li>
+              <li class="i-discover">Discover</li>
+              <li class="i-diners">Diners Club</li>
+              <li class="i-hipercard">Hipercard</li>
+              <li class="i-jcb">JCB</li>
+              <li class="i-aura">Aura</li>
+              <li class="i-boleto">Boleto</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+</div> -->
+
+<div class="dark-mask"></div>
+<!-- #### JAVASCRIPT FILES ### -->
+<!-- #### JAVASCRIPT FILES ### -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="/lib/js/modernizr.custom.js"></script>
+<script src="/lib/js/waypoints.min.js"></script>
+<script src="/lib/js/front.js"></script>
+<script src="/lib/js/magic.js"></script>
+<!-- Tab do Menu -->
+<script src="/lib/js/easyResponsiveTabs.js" type="text/javascript"></script>
+<!-- Tab do Menu -->
+<!--Menu Hrozintal Full -->
+<script src="/lib/js/cbpHorizontalMenu.min.js"></script>
+<!-- Banner Full -->
+<script type="text/javascript" src="/lib/js/jssor.slider.mini.js"></script>
+<!-- Banner Full  Fim -->
+</body>
+</html>

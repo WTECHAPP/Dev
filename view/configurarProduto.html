@@ -1,423 +1,82 @@
-<!-- *** LOGIN MODAL ***_________________________________________________________ -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="Login">Customer login</h4>
-      </div>
-      <div class="modal-body">
-        <form action="customer-orders.html" method="post">
-          <div class="form-group">
-            <input type="text" class="form-control" id="email_modal" placeholder="email">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" id="password_modal" placeholder="password">
-          </div>
-          <p class="text-center">
-            <button class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
-          </p>
-        </form>
-        <p class="text-center text-muted">Not registered yet?</p>
-        <p class="text-center text-muted">
-          <a href="customer-register.html"><strong>Register now</strong></a>!
-          It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!
-        </p>
-      </div>
-    </div>
+  <div class="container">
+    <h2>DEFINIÇÃO DO SEU ARQUIVO</h2>
   </div>
-</div>
-<!-- *** LOGIN MODAL END *** -->
-
-<!-- *** LUPA MODAL ***_________________________________________________________ -->
-<div class="modal fade" id="lupa-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      </div>
-      <div class="modal-body">
-        <img src="lib/images/produtos/propriedades/padrao.jpg" style="width: 100%" />
-      </div>
-    </div>
-  </div>
-</div>
-<!-- *** LUPA MODAL END *** -->
-
-<!-- *** Modelos MODAL ***_________________________________________________________ -->
-<div class="modal fade" id="model-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="Model">Modelos de Impressos</h4>
-      </div>
-      <div class="modal-body">
-        <p class="text-center text-muted">
-          Escollha o modelo de impresso que mais se encaixa com o que você deseja!
-        </p>
-        <ul>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Cardápio de Papel</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Cartão de Visita</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Identificador de Porta</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Papel Timbrado</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Flyer</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Adesivo</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Folhetos</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Panfletos</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- *** Modelos  MODAL END *** -->
-
-<!--Titulo - Inicio-->
-<section class="intro">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <ul class="breadcrumb">
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>{{listDetalhe.nome}}</li>
-          <li>Configure</li>
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="heading">
-          <h2>CONFIGURE SEU PRODUTO: {{listDetalhe.nome}}</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--Titulo - Fim-->
+        <div class="col-lg-8">
+            <section  class="customize main-section">
+                    <header>
+                        <h3>
+                          ESCOLHA O FORMATO DO SEU ARQUIVO
+                        </h3>      
+                        <br>     
+                    </header>
+                    <div class="customize__options">
+                      <ul>
+                        <li>4 x 5 cm</li>
+                        <li>4 x 5 cm</li>
+                        <li>4 x 5 cm</li>
+                        <li>4 x 5 cm</li>
+                        <li>4 x 5 cm</li>
+                        <li>4 x 5 cm</li>
+                      </ul>
+                    </div>
+              </section>
 
-<!-- Conteudo - Fim  -->
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-9 col-md-9 configure">
-        <!-- Escolha Forma - Inicio  -->
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 titulo">
-            <i class="ok" style="display:none"></i>
-            <i class="number">1</i>
-            <span>Escolha a forma de criar seu produto</span>
-            <div class="maisinfo">
-              Mais informações
-              <div class="tooltip">
-                Nesta opção você pode encontrar três formas de criação e envio da sua arte. Elas podem mudar de acordo com o produto escolhido. Selecione a maneira como deseja criar seu material para que os próximos passos sejam disponibilizados.
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-12 itens">
-            <div class="col-xs-6 col-sm-6 col-md-6" style="padding:0">
-              <div class="box upload">
-                <i></i>
-                <div class="opt-sel">
-                  <div class="check" style="display:none"></div>
-                  <div class="check active"></div>
-                  <label class="ng-binding">Importar Modelo</label>
+              <section  class="customize main-section">
+                <header>
+                    <h3>
+                      MATERIAL / TIPO DE PAPEL
+                    </h3>      
+                    <br>     
+                </header>
+                <div class="customize__options">
+                  <ul>
+                    <li>4 x 5 cm</li>
+                    <li>4 x 5 cm</li>
+                    <li>4 x 5 cm</li>
+                    <li>4 x 5 cm</li>
+                    <li>4 x 5 cm</li>
+                    <li>4 x 5 cm</li>
+                  </ul>
                 </div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <div class="box template">
-                <i></i>
-                <div class="opt">
-                  <div class="check"></div>
-                  <div class="check active" style="display:none"></div>
-                  <label class="ng-binding">Criar Modelo Online</label>
-                  <label style="color: #f00; font-style: italic; font-size: 0.9rem;">Indisponível temporariamente</label>
+              </section>
+
+              <section  class="customize main-section">
+                <header>
+                    <h3>
+                      ACABAMENTO
+                    </h3>      
+                    <br>     
+                </header>
+                <div class="customize__options">
+                  <ul>
+                    <li>4 x 5 cm</li>
+                    <li>4 x 5 cm</li>
+                    <li>4 x 5 cm</li>
+                    <li>4 x 5 cm</li>
+                    <li>4 x 5 cm</li>
+                    <li>4 x 5 cm</li>
+                  </ul>
                 </div>
-              </div>
-            </div>
-          </div>
+              </section>
         </div>
-        <!-- Escolha Forma - Fim  -->
-
-        <div class="espaco"></div>
-
-        <!-- Selecione Opções - Inicio  -->
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 titulo">
-            <i class="ok" style="display:none"></i>
-            <i class="number">2</i>
-            <span>Seleciona as opções</span>
-            <div class="maisinfo">
-              Mais informações
-              <div class="tooltip">
-                Nesta opção você pode encontrar três formas de criação e envio da sua arte. Elas podem mudar de acordo com o produto escolhido. Selecione a maneira como deseja criar seu material para que os próximos passos sejam disponibilizados.
-              </div>
+        <div class="col-lg-4">
+          <section class="customize__resumo">
+            <div class="container">
+              <h4>Resumo</h4>
+              <ul>
+                <li>Formato:</li>
+                <li>Impressao:</li>
+                <li>cores:</li>
+                <li>material:</li>
+                <li>Tipo de corte:</li>
+                <li>Enobrecimento:</li>
+                <li>Extras:</li>
+              </ul>
             </div>
-          </div>
-
-          <div id="produtoPropriedades">
-            <div ng-repeat="x in listConfiguracoes" class="col-xs-12 col-sm-12 col-md-12 itens">
-              <h2>{{x.grupo}}</h2>
-              <input type="hidden" id="grupoId" value="{{x.produtoSkuPropriedadeGrupoId}}"/>
-              <div ng-repeat="w in x.propriedades" class="col-xs-6 col-sm-4 col-md-3" style="padding:0">
-                <div class="box-opcoes formato">
-                  <i class="lupa"></i>
-                  <img src="lib/images/produtos/propriedades/{{(w.imagem==null) && 'padrao.jpg' || w.imagem}}" data-toggle="modal" data-target="#lupa-modal" border="0" />
-                  <div class="opt" data-origem="prp" data-grupoid="{{x.produtoSkuPropriedadeGrupoId}}" ng-click="selecionarOpcoes($event)">
-                    <div class="check"></div>
-                    <div class="check active" style="display:none"></div>
-                    <label class="ng-binding">{{w.propriedade}}</label>
-                  </div>
-                </div>
-              </div>
-              <!--<div class="espaco"></div>-->
-            </div>
-          </div>
-          <div class="espaco"></div>
+          </section>
         </div>
-        <!-- Selecione Opções - Fim  -->
-
-        <div class="espaco"></div>
-
-        <!-- Calcule o Frete - Inicio  -->
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 titulo">
-            <i class="ok" style="display:none"></i>
-            <i class="number">3</i>
-            <span>Calcule o Frete e a Previsão de entrega</span>
-            <div class="maisinfo">
-              Mais informações
-              <div class="tooltip">
-                Nesta opção você pode encontrar três formas de criação e envio da sua arte. Elas podem mudar de acordo com o produto escolhido. Selecione a maneira como deseja criar seu material para que os próximos passos sejam disponibilizados.
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-12 itens">
-            <h2>Quantidade e Previsão de Entrega</h2>
-            <h3>Digite seu CEP</h3>
-            <div style="float:left">
-              <input type="text" name="cep" ng-model="cep" ui-br-cep-mask id="cepDestino">
-              <input type="button" value="OK" ng-click="buscarSku($event)">
-              <input type="hidden" id="skuid" value="{{skuId}}">
-            </div>
-            <div ng-show="null !== cepEhValido">
-              <div ng-show="true === cepEhValido" class="cep-ok">CEP encontrado!</div>
-              <div ng-show="false === cepEhValido" class="cep-not-ok ng-hide">CEP não encontrado!</div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12" style="padding:0">
-              <div class="col-xs-12 col-sm-12 col-md-12 espaco"></div>
-              <label id="msgCepAlerta" ng-show="(null === cepEhValido) || (false === cepEhValido)" class="col-xs-12 col-sm-12 col-md-12 mensagem">
-                Favor selecionar as opções acima e <br />informar um CEP válido.
-              </label>
-              <table id="tabela-frete" ng-show="true === cepEhValido" class="table table-hover tabela-frete">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th class="super-rapido"><img class="hidden-xs" src="lib/images/fastestshipping.jpg"><img class="visible-xs" src="lib/images/fastestshipping_p.jpg"></th>
-                    <th></th>
-                    <th class="frete"><div><span>FRETE</span><span><br class="visible-xs" />GRÁTIS</span></div></th>
-                  </tr>
-                  <tr>
-                    <th rowspan="2"><i></i></th>
-                    <th colspan="3" class="previsao-entrega">PREVISÃO DE ENTREGA E VALORES</th>
-                  </tr>
-                  <tr class="borda">
-                    <th ng-repeat="x in tituloTabFrete" class="datas" rowspan="2">
-                      {{x.semana}}
-                      <h2>{{x.dia}} <span>{{x.mes}}</span></h2>
-                      <!--<input type="hidden" id="codigoFrete" value="{{x.codigo}}">
-                      <input type="hidden" id="previsao" value="{{x.calendario}}">-->
-                    </th>
-                  </tr>
-                  <tr>
-                    <th class="quantidade">QUANTIDADE</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="x in dataTabFrete">
-                    <td class="opt-qtde">
-                      <label id="qdte">{{x.quantidade}}<span> un</span></label>
-                      <label id="preco" style="font-size: 1.1rem; text-align: right;">{{x.preco | currency: 'R$ '}}</label>
-                    </td>
-                    <td ng-repeat="w in x.frete" class="opt" data-codigo="{{w.Codigo}}" data-erro="{{w.Erro}}" data-preco="{{x.preco}}" data-qtde="{{x.quantidade}}" data-previsao="{{tituloTabFrete[$index].calendario}}" data-frete="{{w.Valor}}" ng-click="selecionarOpcoes($event)">
-                      <div class="check"></div>
-                      <div class="check active" style="display:none"></div>
-                      <label>{{(w.Erro!=='0' && w.Valor==='0') && '---' || (parseFloat(w.Valor.replace(',','.')) | currency: 'R$ ')}}<br /><span>{{(w.Erro!=='0') && '' || ((parseFloat(w.Valor.replace(',','.')) / x.quantidade) | currency: 'R$ ')}}/un</span></label>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="col-xs-12 col-sm-12 col-md-12 espaco"></div>
-            </div>
-
-            <div ng-show="true === cepEhValido" class="col-xs-12 col-sm-12 col-md-12" style="padding-bottom: 25px; color: #f00; font-style: italic; font-size: 1.4rem;">
-              A data (Previsão de Entrega) acima, somente valerá caso a arte seja aprovada ainda hoje.
-            </div>
-      </div>
-    </div>
-    <!-- Calcule o Frete - Fim  -->
-
-    <div class="espaco"></div>
-
-    <!-- Escolha Forma - Inicio  -->
-    <div id="adicionais" class="row" style="padding-bottom: 35px; background-color: #fff;">
-      <div class="col-xs-12 col-sm-12 col-md-12 titulo">
-        <i class="ok" style="display:none"></i>
-        <i class="number">4</i>
-        <span>Configurações Adicionais</span>
-        <div class="maisinfo">
-          Mais informações
-          <div class="tooltip">
-            Nesta opção você pode encontrar três formas de criação e envio da sua arte. Elas podem mudar de acordo com o produto escolhido. Selecione a maneira como deseja criar seu material para que os próximos passos sejam disponibilizados.
-          </div>
-        </div>
-      </div>
-      <div ng-repeat="x in listAdicionais" class="col-xs-12 col-sm-12 col-md-12 itens">
-        <h2>{{x.grupo}}</h2>
-        <div ng-repeat="w in x.adicionais" class="{{$index == 0 && 'col-xs-12 col-sm-12 col-md-12 checagem-checked  ng-scope' || 'col-xs-12 col-sm-12 col-md-12 checagem  ng-scope'}}" style="padding:0">
-          <div class="descricao">
-            <div class="{{0 === $index ? 'opt-sel' : 'opt'}}" data-origem="adc" data-grupoid="{{x.grupo}}" data-adicionalid="{{w.adicionalid}}" ng-click="selecionarAdicionais($event)">
-              <div class="check" style="{{0 === $index ? 'display:none' : ''}}"></div>
-              <div class="check active" style="{{0 === $index ? '' : 'display:none'}}"></div>
-              <p class="">{{w.nome}}</p>
-            </div>
-          </div>
-          <div class="valor">
-            <p class="gratis">{{(w.valor>0) && (w.valor | currency: 'R$ ') || 'GRÁTIS'}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Escolha Forma - Fim  -->
-
-    <!-- Botão Continuar - Inicio  -->
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 configuracao-produto">
-        <button class="configureproduto disabled" ng-show="((null === cepEhValido || null === skuEhValido) || (!cepEhValido || !skuEhValido))">
-          Continuar
-        </button>
-        <button class="configureproduto" ng-show="(cepEhValido && skuEhValido)" ng-click="adicionarCarrinho()">
-          Continuar
-        </button>
-      </div>
-    </div>
-    <!-- Botão Continuar - Fim  -->
-  </div>
-
-  <!-- Resumo - Inicio  -->
-  <div class="hidden-xs col-sm-3 col-md-3 area-resumo">
-    <div class="resumo" id="resumo">
-      <div class="box-resumo">
-        <div class="heading">
-          <h2>Resumo</h2>
-        </div>
-        <p ng-repeat="x in listConfiguracoes">
-          <span id="{{x.produtoSkuPropriedadeGrupoId}}" data-grupo="{{x.grupo}}" class="conf">{{x.grupo}}:</span>
-        </p>
-        <div class="heading">
-          <h2>Opções Adicionais</h2>
-        </div>
-        <p ng-repeat="x in listAdicionais">
-          <span id="{{x.grupo}}" data-grupo="{{x.grupo}}" class="adic">{{x.grupo + ': ' + x.adicionais[0].nome}}</span>
-        </p>
-        <div class="atencao">
-          <i class="warning"></i>
-          <div><span>Previsão de entrega:</span></div>
-        </div>
-        <h4>R$ 0,00 <span>(R$ 0,00 / un)</span></h4>
-      </div>
-      <button class="configureproduto disabled" ng-show="((null === cepEhValido || null === skuEhValido) || (!cepEhValido || !skuEhValido))">Continuar</button>
-      <button class="configureproduto" ng-show="(cepEhValido && skuEhValido)" ng-click="adicionarCarrinho()">Continuar</button>
     </div>
   </div>
-  <!-- Resumo - Fim  -->
-
-  <div class="fundo" ng-show="true === carregando">
-  <!--<div class="fundo">-->
-    <div class="carregando">
-      <img src="lib/images/carregando.gif" alt="Por favor, aguarde..."/>
-      <br />
-      <label style="margin-top: 20px;">Por favor, aguarde...</label>
-    </div>
-  </div>
-</section>
-<!-- Conteudo - Fim  -->
-
-<div class="espaco" id="limiteResumo"></div>
-
-<!--Newsletter - Inicio-->
-<section class="newsletter">
-  <div class="container">
-    <div class="col-md-8 col-sm-12">
-      <!-- -->
-      <ul>
-        <li class="iconMail">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139.95 55.18">
-            <path fill="#cbcfd4" d="M92.78 14.53c4.49 0 7.69 3.64 7.69 8.14v23.39a8.12 8.12 0 0 1-8.12 8.12H49.47a9 9 0 0 1-9-9V22.67a8.33 8.33 0 0 1 8.36-8.14" />
-            <path fill="#151617" d="M93.22 55.18H49.47c-5.62 0-10-4-10-9.12V22.67a9.69 9.69 0 0 1 9.78-9.64 1.45 1.45 0 0 1 1.32.85 1.51 1.51 0 0 1-1.36 2.15 6.69 6.69 0 0 0-6.73 6.64v23.39c0 3.83 3.57 6.12 7 6.12h43.73a5.92 5.92 0 0 0 6.25-6.12V22.67a6.47 6.47 0 0 0-6.44-6.64 1.51 1.51 0 0 1-1.36-2.15 1.44 1.44 0 0 1 1.31-.85 9.44 9.44 0 0 1 9.5 9.64v23.39a8.89 8.89 0 0 1-9.25 9.12z" />
-            <path fill="#151617" d="M71.32 37.39a9.59 9.59 0 0 1-4.67-1.2l-24.57-15.3a1.503 1.503 0 1 1 1.59-2.55l24.5 15.26a6.65 6.65 0 0 0 6.46-.07l23.9-15.18a1.5 1.5 0 1 1 1.61 2.53l-24 15.22a9.79 9.79 0 0 1-4.82 1.29z" />
-            <path fill="#fe0060" d="M73.47 10.51c-1.12 0-2.15 1.39-3 2-.83-.62-1.86-2-3-2a5 5 0 0 0-5 5c0 2.76 7.14 10.91 8 10.29.83.62 8-7.53 8-10.29a5 5 0 0 0-5-5z" />
-            <path fill="#151617" d="M70.6 27.18s-.08.08-.12.07-.08 0-.12 0c-2.45 0-9.36-8.71-9.36-11.81a6.5 6.5 0 0 1 6.5-6.49 4.57 4.57 0 0 1 3 1.5 4.56 4.56 0 0 1 3-1.49 6.51 6.51 0 0 1 6.5 6.5c0 2-2.07 4.87-3.8 7-3.84 4.78-5.16 4.72-5.6 4.72zm-3.13-15.17a3.5 3.5 0 0 0-3.49 3.5c0 1.65 4.77 7.55 6.48 8.74 1.7-1.19 6.48-7.09 6.48-8.74a3.5 3.5 0 0 0-3.5-3.5 4.68 4.68 0 0 0-1.19.93 10.51 10.51 0 0 1-.88.77 1.52 1.52 0 0 1-1.79 0 10.36 10.36 0 0 1-.89-.78 4.52 4.52 0 0 0-1.22-.92z" />
-            <path fill="#fe0060" d="M133.47 1.51c-1.12 0-2.15 1.39-3 2-.83-.62-1.86-2-3-2a5 5 0 0 0-5 5c0 2.76 7.14 10.91 8 10.29.83.62 8-7.53 8-10.29a5 5 0 0 0-5-5z" />
-            <path fill="#151617" d="M130.6 18.18s-.08.08-.12.07-.08 0-.12 0c-2.45 0-9.36-8.71-9.36-11.81a6.5 6.5 0 0 1 6.5-6.49 4.57 4.57 0 0 1 3 1.5 4.56 4.56 0 0 1 3-1.49 6.51 6.51 0 0 1 6.5 6.5c0 2-2.07 4.87-3.8 7-3.84 4.78-5.16 4.72-5.6 4.72zm-3.13-15.17a3.5 3.5 0 0 0-3.49 3.5c0 1.65 4.77 7.55 6.48 8.74 1.7-1.19 6.48-7.09 6.48-8.74a3.5 3.5 0 0 0-3.5-3.5 4.68 4.68 0 0 0-1.19.93 10.51 10.51 0 0 1-.88.77 1.52 1.52 0 0 1-1.79 0 10.36 10.36 0 0 1-.89-.78 4.52 4.52 0 0 0-1.22-.92z" />
-            <path fill="#fe0060" d="M10.47 26.06c-1 0-1.87 1.21-2.6 1.75-.73-.54-1.62-1.75-2.6-1.75a4.36 4.36 0 0 0-4.36 4.36c0 2.41 6.23 9.52 7 9 .73.54 7-6.57 7-9a4.36 4.36 0 0 0-4.44-4.36z" />
-            <path fill="#151617" d="M8.38 41.18s-.07-.09-.1-.09h-.1c-2.14 0-8.17-7.64-8.17-10.34a5.69 5.69 0 0 1 5.67-5.68 4 4 0 0 1 2.6 1.3 4 4 0 0 1 2.6-1.31 5.68 5.68 0 0 1 5.67 5.67c0 1.72-1.8 4.41-3.32 6.29-3.32 4.06-4.47 4.16-4.85 4.16zM5.67 27.62a3.05 3.05 0 0 0-3 3.05c0 1.44 4.16 6.58 5.65 7.63 1.49-1 5.65-6.18 5.65-7.63a3.06 3.06 0 0 0-3.05-3.05 4.08 4.08 0 0 0-1 .82 9.17 9.17 0 0 1-.77.68 1.32 1.32 0 0 1-1.57 0 9 9 0 0 1-.78-.68 4 4 0 0 0-1.14-.82z" />
-            <path fill="#fe0060" d="M113.76 38.44c-.78 0-1.49 1-2.07 1.4-.58-.43-1.29-1.4-2.07-1.4a3.48 3.48 0 0 0-3.48 3.48c0 1.92 5 7.6 5.55 7.16.58.43 5.55-5.24 5.55-7.16a3.48 3.48 0 0 0-3.48-3.48z" />
-            <path fill="#151617" d="M111.68 49.18s-.05.29-.08.29-.05.15-.08.15c-1.7 0-6.52-6-6.52-8.16a4.5 4.5 0 0 1 4.52-4.49 3.19 3.19 0 0 1 2.07 1.06 3.16 3.16 0 0 1 2.07-1 4.53 4.53 0 0 1 4.52 4.53c0 1.37-1.44 3.16-2.65 4.66-2.62 3.24-3.54 2.96-3.85 2.96zm-2.21-10.09a2.44 2.44 0 0 0-2.43 2.44c0 1.15 3.32 5.25 4.51 6.08 1.19-.83 4.51-4.93 4.51-6.08a2.44 2.44 0 0 0-2.44-2.43 3.26 3.26 0 0 0-.83.65 7.27 7.27 0 0 1-.62.54 1 1 0 0 1-1.24 0 7.17 7.17 0 0 1-.62-.54 3.15 3.15 0 0 0-.84-.66zM63.58 13.03H49.47c-5.62 0-10 3.86-10 9v12h3v-12c0-3.83 3.57-6 7-6h13.21zm29.64 0H78.47v3h14.75c3.68 0 6.25 2.37 6.25 6v12h3v-12c0-5.31-3.89-9-9.25-9z" />
-          </svg>
-        </li>
-        <li class="subscribe ng-scope" ng-controller="newsletterCtrl">
-          <h4>Inscreva-se em nossa newsletter</h4>
-          <p>para receber nossas últimas notícias e descontos exclusivos</p>
-          <form id="frmNewsletter" name="frmNewsletter" ng-submit="novo()">
-            <div class="input-group">
-              <input type="text" class="form-control" ng-model="email" name="email" placeholder="Digite seu email" validation="required">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                  Inscrever
-                </button>
-              </span>
-            </div>
-          </form>
-        </li>
-        <li class="social">
-          <p>Encontre-nos em nossas redes sociais</p>
-          <a href="https://www.facebook.com/PrintiBR?fref=ts" alt="Facebook" target="blank" class="facebook"></a>
-          <a href="https://twitter.com/Printi" alt="Twitter" target="blank" class="twitter"></a>
-          <a href="https://www.linkedin.com/company/printi" alt="Linkedin" target="blank" class="linkedin"></a>
-          <a href="https://plus.google.com/u/1/+PrintiBr/posts" alt="Google Plus" target="blank" class="googleplus no-mr"></a>
-        </li>
-      </ul>
-      <!-- -->
-    </div>
-  </div>
-</section>
-<!--Newsletter - Fim-->
-
-<script>
-function checarScroll() {
-  var margem = 10;
-  var posicao = $(document).scrollTop() + window.innerHeight;
-  var footertop = $('#limiteResumo').offset().top;
-  var meiodapagina = window.innerHeight / 2;
-  var maximo = footertop + meiodapagina - margem;
-  if (posicao < maximo) {
-    $('#resumo').css('bottom', '');
-    //$('#resumo').removeAttr('bottom');
-  } else {
-    $('#resumo').css('bottom', (margem + (posicao - footertop)) + 'px');
-  }
-}
-//$(document).ready(checarScroll);
-$(document).ready(function(){
-  checarScroll();
-
-  /*$(".check").click(function(){
-  alert("*** TESTE!");
-});*/
-});
-$(document).scroll(checarScroll);
-</script>
+  

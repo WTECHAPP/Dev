@@ -60,4 +60,27 @@ frontEnd.controller("homeCtrl", function ($scope, $location, $window, config, ho
       $window.location.href = "#/";
     }
 
+    $scope.init = () => {
+      $(document).ready(function() {
+        // $('.owl-carousel').owlCarousel({
+        //   items: 5,
+        //   loop: true,
+        //   mouseDrag: true,
+        //   touchDrag: true,
+        //   dots: true,
+        //   autoplay: true,
+        //   nav: true
+        // })
+        $('.carousel').carousel({
+          interval: 2000
+        })
+
+        $('.carousel.promocoes').carousel({
+          interval: 2000
+        })
+      })
+    }
+
+    $scope.init()
+
 });

@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+body {
+    background: #eeeeee;
+}
+
+header.header {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+header.header .header__top-bar {
+    background: #ffca09;
+    padding: 0.3em 0;
+}
+
+header.header .header__top-bar a {
+    color: black;
+}
+
+header.header .header__content {
+    padding: 1em 0;
+    background: white;
+}
+
+header.header .header__content .header__slogan {
+    padding: 1.3em 0;
+    font-size: 1.3em;
+}
+
+header.header .header__menu {
+    padding: 1em 0;
+    font-size: 1.5em;
+}
+
+header.header .header__menu ul {
+    list-style: none;
+    margin: 0;
+}
+
+header.header .header__menu ul li {
+    display: inline-block;
+    margin: 0 1em;
+}
+
+
+footer.footer {
+    border-top: 7px solid #009ed5;
+    background: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+footer.footer .footer__content {
+    padding: 2em 0;
+}
+
+footer.footer .footer__content img#logo {
+    width: 25em;
+    margin: 0 auto;
+    display: block;
+}
+
+footer.footer .footer__content img#pagseguro {
+    width: 25em;
+    margin: 0 auto;
+    display: block;
+}
+
+footer.footer .footer__content .footer_contact {
+    text-align: center;
+    padding: 2em 0;
+    font-size: 1.3em;
+}
+
+footer.footer .footer__bottom-bar {
+    background: #ee3897;
+    color: white;
+    padding: .5em 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+section.main-section h3{
+    float: left;
+}
+
+section.main-section header {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    margin: 2em 0;
+}
+section.main-section header h3 {
+    font-size: 2em;
+}
+
+section#produtos-destaque {
+    
+}
+
+section#produtos-destaque .produtos-destaque__produtos {
+    
+}
+
+section#produtos-destaque .produtos-destaque__produtos {
+    list-style: none;
+    padding: 0;
+}
+
+section#produtos-destaque .produtos-destaque__produtos li {
+    display: inline-block;
+    margin: 7px;
+}
+
+section#produtos-destaque .produtos-destaque__produtos li span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    display: block;
+    padding: .3em 0;
+}
+
+section.customize {
+
+}
+
+section.customize .customize__options {
+    
+}
+
+section.customize .customize__options {
+    
+}
+
+
+section.customize .customize__options ul {
+    display: block;
+    clear: both;
+    padding: 0;
+    
+}
+
+section.customize .customize__options ul li {
+    display: inline-block;
+    background-color: white;
+    padding: 15px 60px;
+    margin: 15px 15px; 
+    border: 1px solid #e6e7e9;
+    box-shadow: 0px -1px 0px #e6e7e9, 
+                0px 1px 1px white;
+}
+section.customize__resumo {
+    background-color: white;
+}
+
+section.customize__resumo ul {
+    list-style: none;
+    padding: 0;
+}
+
+section.customize__resumo ul li {
+    padding: 3px 0px; 
+}
