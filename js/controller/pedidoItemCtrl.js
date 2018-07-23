@@ -7,11 +7,11 @@ frontEnd.controller("pedidoItemCtrl", function ($scope, $location, $rootScope, $
         }
         else{
           console.log("Erro: " + result.data);
-          $window.location.href = "/#/alerta";
+          //$window.location.href = "/#/alerta";
         }
       }).catch((error) => {
         console.log(error);
-        $window.location.href = "/#/alerta";
+        //$window.location.href = "/#/alerta";
       });
     }
   };

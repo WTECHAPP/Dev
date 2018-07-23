@@ -1,536 +1,135 @@
-<!-- *** LOGIN MODAL ***_________________________________________________________ -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="Login">Customer login</h4>
-      </div>
-      <div class="modal-body">
-        <form action="customer-orders.html" method="post">
-          <div class="form-group">
-            <input type="text" class="form-control" id="email_modal" placeholder="email">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" id="password_modal" placeholder="password">
-          </div>
-          <p class="text-center">
-            <button class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
-          </p>
-        </form>
-        <p class="text-center text-muted">Not registered yet?</p>
-        <p class="text-center text-muted">
-          <a href="customer-register.html"><strong>Register now</strong></a>!
-          It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!
-        </p>
-      </div>
-    </div>
-  </div>
+<div class="container">
+  <h2>Finalizar Compra</h2>
 </div>
-<!-- *** LOGIN MODAL END *** -->
-
-<!-- *** LUPA MODAL ***_________________________________________________________ -->
-<div class="modal fade" id="lupa-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      </div>
-      <div class="modal-body">
-        <img src="lib/images/opcoes-formato.jpg" style="width: 100%" />
-      </div>
-    </div>
-  </div>
-</div>
-<!-- *** LUPA MODAL END *** -->
-
-<!-- *** Modelos MODAL ***_________________________________________________________ -->
-<div class="modal fade" id="model-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="Model">Modelos de Impressos</h4>
-      </div>
-      <div class="modal-body">
-        <p class="text-center text-muted">
-          Escollha o modelo de impresso que mais se encaixa com o que você deseja!
-        </p>
-        <ul>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Cardápio de Papel</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Cartão de Visita</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Identificador de Porta</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Papel Timbrado</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Flyer</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Adesivo</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Folhetos</a></li>
-          <li><a href="modelos-de-cardapio-de-papel.html">Modelos de Panfletos</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- *** Modelos  MODAL END *** -->
-
-<!--Titulo - Inicio-->
-<section class="intro">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="heading">
-          <h2>FINALIZAR COMPRA</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--Titulo - Fim-->
-
-<!-- Conteudo - Fim  -->
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-9 col-md-9 finalizar-compra">
-        <!-- Dados - Inicio  -->
-        <div class="row" style="background-color:#fff;">
-          <div class="col-xs-12 col-sm-12 col-md-12 titulo">
-            <i class="ok"></i>
-            <i class="number" style="display:none">1</i>
-            <span>Dados</span>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 conteudo">
-            <b>{{finalizar.consumidor[0].nome}}</b>
-            <br />
-            <span>Email: {{finalizar.consumidor[0].email}}</span>
-            <br />
-            <span>CPF: {{finalizar.consumidor[0].cpfCnpj}}</span>
-            <br />
-            <span>Nascimento: {{finalizar.consumidor[0].dataNascimento}}</span>
-            <div class="row linha">
-              <div class="col-xs-12 col-sm-12 col-md-6 links">
-                <a href="" data-toggle="modal" data-target="#alterarCliente"><i class="editar"></i>Editar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 conteudo">
-            <b>Telefones</b>
-            <div style="font-weight: normal;" ng-repeat="x in finalizar.consumidor[0].telefones | limitTo: 3">Tel.: ({{x.ddd}}) {{x.numero}}</div>
-            <div class="row linha">
-              <div class="col-xs-12 col-sm-12 col-md-6 links">
-                <a href="" data-toggle="modal" data-target="#adicionarTelefone"><i class="adicionar"></i>Adicionar</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Dados - Fim  -->
-
-        <div class="espaco"></div>
-
-        <!-- Endereço - Inicio  -->
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 titulo">
-            <i class="ok"></i>
-            <i class="number" style="display:none">2</i>
-            <span>Selecione o endereço</span>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-12 conteudo">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <section class="informacoes-pedido">
+       <header>
+         <h4>Dados</h4>
+       </header>
+       <div class="informacoes-pedido__conteudo">
+         <p><strong>Joviano Alves</strong></p>
+         <p><a>Email:jovianoalves@gmail.com</a></p>
+         <p>CPF: 123.489.654-8</p>
+         <p>Tel: (11) 4485-5963</p>
+         <i class="fa fa-pencil"></i><a href="#">Editar</a>
+       </div>
+      </section>
+      <section class="informacoes-pedido">
+          <header>
+            <h4>ENDEREÇO DE ENTREGA</h4>
+          </header>
+          <div class="informacoes-pedido__conteudo">
             <div class="row">
-              <div class="col-xs-12 col-sm-4 col-md-4" ng-repeat="x in finalizar.consumidor[0].enderecos" ng-click="selecionarEndereco($event)" style="margin: 15px 0;">
-                <!--<div class="box-finalizar-compra" style="overflow:hidden;">-->
-                <div ng-class="{'box-finalizar-compra selecionado':(cep === x.cep), 'box-finalizar-compra':(cep !== x.cep)}" style="overflow:hidden;">
-                  Entrega
-                  <input type="hidden" id="hfEnderecoId" value="{{x.consumidorEnderecoId}}">
-                  <br />
-                  <span style="white-space:nowrap;">{{x.destinatario}}</span>
-                  <br />
-                  <span style="white-space:nowrap;">{{x.logradouro}}, {{x.numeroEnd}}</span>
-                  <br />
-                  <span style="white-space:nowrap;">Compl.:{{x.complemento.length > 0 ? x.complemento : "-"}}</span>
-                  <br />
-                  <span style="white-space:nowrap;">CEP: {{x.cep}}</span>
-                  <br />
-                  <span style="white-space:nowrap;">Bairro: {{x.bairro}}</span>
-                  <br />
-                  <span style="white-space:nowrap;">Cidade: {{x.cidade}} - {{x.estado}}</span>
-                  <div class="check" ng-show="(cep !== x.cep)"></div>
-                  <div class="check active" ng-show="(cep === x.cep)"></div>
+              <div class="col-lg-4">
+                <div class="endereco">
+                  <h6>Entrega</h6>
+                  <ul>
+                    <li>Joviano</li>
+                    <li>Avenida Paulista, 230</li>
+                    <li>15º andar</li>
+                    <li>Cep:</li>
+                    <li>Bairro:</li>
+                    <li>Cidade:</li>
+                  </ul>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-4 col-md-4" style="margin: 15px 0;text-align: center;">
-                <div class="box-finalizar-compra" data-toggle="modal" data-target="#novoEndereco">
-                  <span>&nbsp;</span>
-                  <br />
-                  <span>&nbsp;</span>
-                  <br />
-                  <span>&nbsp;</span>
-                  <br />
-                  Adicionar
-                  <br />
-                  <span>&nbsp;</span>
-                  <br />
-                  <span>&nbsp;</span>
-                  <br />
-                  <span>&nbsp;</span>
-                  <br />
+              <div class="col-lg-4">
+                  <div class="endereco">
+                      <h6>Cobrança</h6>
+                      <ul>
+                        <li>Joviano</li>
+                        <li>Avenida Paulista, 230</li>
+                        <li>15º andar</li>
+                        <li>Cep:</li>
+                        <li>Bairro:</li>
+                        <li>Cidade:</li>
+                      </ul>
+                    </div>
+              </div>
+            </div>
+          </div>
+         </section>
+         <section class="informacoes-pedido">
+            <header>
+              <h4>Forma de Pagamento</h4>
+            </header>
+            <div class="informacoes-pedido__conteudo">
+              <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12"><button type="button" class="btn btn-lg btn-primary btn-card"><i class="fa fa-credit-card"></i>&nbsp; Cartão de crédito</button></div>
+                <div class="col-lg-4 col-md-4 col-sm-12"><button type="button" class="btn btn-lg btn-default btn-bank"><i class="fa fa-barcode"></i>&nbsp; Boleto bancário</button></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="credit-card">
+                        <img src="lib/images/cartao-credito.png" alt="">
+                    </div>
                 </div>
-              </div>
-            </div>
-            <!--<div class="row linha">
-              <div class="col-xs-12 col-sm-12 col-md-6 links">
-                <a href=""><i class="editar"></i>Editar</a>
-              </div>
-            </div>-->
-          </div>
-        </div>
-        <!-- Endereço - Fim  -->
-
-        <div class="espaco"></div>
-
-        <!-- Pagamento - Inicio  -->
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 titulo">
-            <i class="ok" style="display:none"></i>
-            <i class="number">3</i>
-            <span>Selecione a forma de pagamento</span>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-12 conteudo">
-            <div class="row">
-              <div class="col-xs-6 col-sm-5 col-md-4">
-                <button class="btn-cartao-credito">
-                  <span></span>Cartão de Crédito
-                </button>
-              </div>
-              <div class="col-xs-6 col-sm-5 col-md-4">
-                <button class="btn-boleto">
-                  <span></span>Boleto Bancário
-                </button>
-              </div>
-            </div>
-            <div class="row cartao-credito">
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <img src="lib/images/cartao-credito.png" />
-              </div>
-              <!-- INICIO CARTAO DE CREDITO -->
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="row" style="margin-right:2px;">
-                  <div class="col-xs-12 col-sm-12 col-md-12">
-                    <input type="text" placeholder="Nº cartão" ng-model="cartao.numeroCartao" ng-change="bandeira(cartao.numeroCartao);">
-                  </div>
-                  <div class="col-xs-12 col-sm-12 col-md-6">
-                    <input type="text" placeholder="Nome" ng-model="cartao.nomeCartao">
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-3">
-                    <input type="text" placeholder="Mês" ng-model="cartao.mesCartao">
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-3">
-                    <input type="text" placeholder="Ano" ng-model="cartao.anoCartao">
-                  </div>
-                  <div class="col-xs-12 col-sm-5 col-md-5">
-                    <input type="text" placeholder="Cód CVV" ng-model="cartao.codigoCartao">
-                  </div>
-                  <div class="col-xs-12 col-sm-7 col-md-7">
-                    <select  ng-model="cartao.parcelaCartao">
-                      <option value="{{parcela.quantity}}" ng-repeat="parcela in parcelas">{{parcela.quantity}}x  de  {{parcela.installmentAmount | currency: 'R$ '}} {{parcela.interestFree ? 's/ juros' : 'c/ juros'}}</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <!-- FIM CARTAO DE CREDITO -->
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-12 conteudo">
-            <div class="visible-xs col-xs-12 compra-segura">
-              <button ng-click="validaCartao(cartao);">
-                FINALIZAR COMPRA
-              </button>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-4 compra-segura">
-              <img src="lib/images/img-security.jpg" />
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3 compra-segura">
-              <i></i>Compra 100% segura
-            </div>
-            <div class="hidden-xs col-xs-12 col-sm-4 col-md-5 compra-segura">
-              <button ng-click="validaCartao(cartao);">
-                FINALIZAR COMPRA
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- Pagamento - Fim  -->
-
-        <!-- Modal - Inicio  -->
-        <div class="modal fade" id="novoEndereco" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Novo Endereço</h4>
-              </div>
-              <div class="modal-body">
-                <h3>Digite seu CEP</h3>
-                <div style="clear:both;"></div>
-                  <div style="overfow:hidden;">
-                    <div style="float:left;">
-                      <input type="text" name="cep" ng-model="cep" placeholder="CEP" ui-br-cep-mask id="cepDestino">
-                      <input type="button" value="OK" ng-click="buscarEndereco()">
-                    </div>
-                    <div ng-show="null !== cepEhValido">
-                      <div ng-show="true === cepEhValido" class="cep-ok">CEP encontrado!</div>
-                      <div ng-show="false === cepEhValido" class="cep-not-ok ng-hide">CEP não encontrado!</div>
-                    </div>
-                    <div style="clear:both;padding:5px 0;"></div>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-12">
-                        <input type="text" id="nomeDestino" name="nome" ng-model="nome" placeholder="Destinatário (Casa, Escritório, etc...)" style="width:100%;">
-                      </div>
-                    </div>
-                    <div style="padding:5px 0;"></div>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-12">
-                        <input type="text" id="logradouroDestino" name="logradouro" ng-model="logradouro" placeholder="Rua, Av., etc..." readonly="readonly" style="width:100%;">
-                      </div>
-                    </div>
-                    <div style="padding:5px 0;"></div>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-4 col-md-4">
-                        <input type="text" id="numeroDestino" name="numero" ng-model="numero" placeholder="Numero" style="width:100%;">
-                      </div>
-                      <div class="col-xs-12 col-sm-1 col-md-1">&nbsp;</div>
-                      <div class="col-xs-12 col-sm-7 col-md-7">
-                        <input type="text" id="complementoDestino" name="complemento" ng-model="complemento" placeholder="Complemento" style="width:100%;">
-                      </div>
-                    </div>
-                    <div style="clear:both;padding:5px 0;"></div>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-12">
-                        <input type="text" id="bairroDestino" name="bairro" ng-model="bairro" placeholder="Bairro" readonly="readonly" style="width:100%;">
-                      </div>
-                    </div>
-                    <div style="padding:5px 0;"></div>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-8 col-md-8">
-                        <input type="text" id="cidadeDestino" name="cidade" ng-model="cidade" placeholder="Cidade" readonly="readonly" style="width:100%;">
-                      </div>
-                      <div class="col-xs-12 col-sm-1 col-md-1">&nbsp;</div>
-                      <div class="col-xs-12 col-sm-3 col-md-3">
-                        <input type="text" id="ufDestino" name="uf" ng-model="uf" placeholder="UF" readonly="readonly" style="width:100%;">
-                      </div>
-                    </div>
-                    <div style="padding:5px 0;"></div>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-12">
-                        <input type="text" id="referenciaDestino" name="referencia" ng-model="referencia" placeholder="Ponto de Referência" style="width:100%;">
-                      </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="form-row informacoes-pedido__pagamento">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="input-group input-group-lg form-input">
+                            <input type="text" class="form-control" placeholder="Nº do Cartão:">
+                         </div>
                     </div>
                   </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" data-dismiss="modal" ng-click="salvarEndereco()">Salvar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Modal - Fim  -->
-
-        <!-- Modal - Inicio  -->
-        <div class="modal fade" id="alterarCliente" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Alterar Dados</h4>
-              </div>
-              <div class="modal-body">
-                <form action="" name="frmDadosPessoais" method="post">
-                  <div style="overfow:hidden;">
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-12">
-                        <label>Nome</label>
-                        <input type="text" id="nomeCliente" ng-value="finalizar.consumidor[0].nome" name="nome" ng-model="nome" placeholder="Nome" style="width:100%;" required>
+                  <div class="form-row informacoes-pedido__pagamento">
+                      <div class="col-lg-6 col-md-6 col-sm-12">
+                          <div class="input-group input-group-lg form-input">
+                              <input type="text" class="form-control" placeholder="Nome:">
+                           </div>
                       </div>
-                    </div>
-                    <div style="padding:5px 0;"></div>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-12">
-                        <label>Email</label>
-                        <input type="text" id="emailCliente" ng-value="finalizar.consumidor[0].email" name="email" ng-model="email" placeholder="E-mail" style="width:100%;" required>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                          <div class="input-group input-group-lg form-input">
+                              <input type="text" class="form-control" placeholder="Mês:">
+                           </div>
                       </div>
-                    </div>
-                    <div style="padding:5px 0;"></div>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-4 col-md-4">
-                        <label>RG/IE</label>
-                        <input type="text" id="rgIeCliente" ng-value="finalizar.consumidor[0].rgIE" name="rgIe" ng-model="rgIe" placeholder="RG/IE" style="width:100%;">
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                          <div class="input-group input-group-lg form-input">
+                              <input type="text" class="form-control" placeholder="Ano:">
+                           </div>
                       </div>
-                      <div class="col-xs-12 col-sm-1 col-md-1">&nbsp;</div>
-                      <div class="col-xs-12 col-sm-4 col-md-4">
-                        <label>Nascimento</label>
-                        <input type="text" id="nascimentoCliente" ng-value="finalizar.consumidor[0].dataNascimento" name="nascimento" ng-model="nascimento" ui-date-mask placeholder="Nascimento" style="width:100%;" required>
+                  </div>
+                  <div class="form-row informacoes-pedido__pagamento">
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                          <div class="input-group input-group-lg form-input">
+                              <input type="text" class="form-control" placeholder="Cód">
+                           </div>
                       </div>
-                      <div class="col-xs-12 col-sm-1 col-md-1">&nbsp;</div>
-                      <div class="col-xs-12 col-sm-2 col-md-2">
-                        <label>Sexo</label>
-                        <!--<input type="text" id="sexoCliente" ng-value="finalizar.consumidor[0].sexo" name="sexo" ng-model="sexo" placeholder="Sexo" style="width:100%;">-->
-                        <select id="sexoCliente" ng-model="sexo">
-                          <option ng-selected="finalizar.consumidor[0].sexo === 'F'" value="F">F</option>
-                          <option ng-selected="finalizar.consumidor[0].sexo === 'M'" value="M">M</option>
+                      <div class="col-lg-8 col-md-8 col-sm-12">
+                        <select class="select-pag">
+                          <option value="72,00"><h5>R$72,00 (Á vista)</h5></option>
+                          <option value="2x31,00">2 x R$31,00</option>
+                          <option value="3x24,00">3 x R$24,00</option>
                         </select>
-                      </div>
-                    </div>
-                    <div style="clear:both;padding:5px 0;"></div>
+                      </div>                   
                   </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" ng-click="atualizarCadastro()">Salvar</button>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- Modal - Fim  -->
-
-        <!-- Modal - Inicio  -->
-        <div class="modal fade" id="adicionarTelefone" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Novo Telefone</h4>
-              </div>
-              <div class="modal-body">
-                <form action="" name="frmNovoTelefone" method="post">
-                  <div style="overfow:hidden;">
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-2 col-md-2">
-                        <label>DDD</label>
-                        <input type="text" id="ddd" name="ddd" maxLength="2" ng-model="ddd" placeholder="DDD" style="width:100%;" required ng-minlength="2">
-                      </div>
-                      <div class="col-xs-12 col-sm-4 col-md-4">
-                        <label>Tipo</label>
-                        <select id="tipo">
-                          <option value="C" selected="selected">Celular</option>
-                          <option value="M">Comercial</option>
-                          <option value="R">Residencial</option>
-                        </select>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 col-md-6">
-                        <label>Telefone</label>
-                        <input type="text" id="telefone" name="telefone" maxLength="9" ng-model="telefone" placeholder="Telefone" style="width:100%;" required ng-minlength="8">
-                      </div>
-                    </div>
-                    <div style="clear:both;padding:5px 0;"></div>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" ng-disabled="frmNovoTelefone.$invalid" ng-click="salvarTelefone()" ng-class="{'disabled':frmNovoTelefone.$invalid, '':frmNovoTelefone.$valid}">Salvar</button>
-              </div>
+           </section>
+    </div>
+    <div class="col-lg-4">
+        <section class="detalhes-pedido">
+            <div class="resumo">       
+              <h4>RESUMO</h4>
+              <ul>
+                <li><h5>TOTAL</h5></li>
+                <li><h2>R$ 72,00</h2></li>             
+              </ul>
+              <hr>
+              <h4>Produtos</h4>
+              <ul>
+                  <li>Produto:</li>                
+                  <li>Formato:</li>
+                  <li>Quantidade:</li>
+                  <li>Valor:</li>
+                </ul>
+              <i class="glyphicon glyphicon-chevron-right"></i>&nbsp; <a href="#">Ver todos os produtos</a>
             </div>
-          </div>
-        </div>
-        <!-- Modal - Fim  -->
-      </div>
-
-      <!-- Resumo - Inicio  -->
-      <div class="hidden-xs col-sm-3 col-md-3 area-resumo">
-        <div class="visible-xs espaco"></div>
-        <div class="resumo carrinho-resumo">
-          <div class="box-resumo">
-            <div class="heading">
-              <h2>Resumo <span>(1 item)</span></h2>
-            </div>
-            <p>&nbsp;</p>
-            <p><span>TOTAL</span></p>
-            <h4>{{finalizar.fatura.valorTotal | currency: 'R$'}}</h4>
-            <hr />
-            <div class="heading">
-              <h2>PRODUTOS</h2>
-            </div>
-            <div class="row conteudo">
-              <div class="col-xs-5 col-sm-5 col-md-5">
-                <img src="lib/images/marcacao.jpg" />
-              </div>
-              <div class="col-xs-7 col-sm-7 col-md-7 desc-produto">
-                <span>{{finalizar.fatura.itens[0].produto}}</span>
-                <br />
-                {{finalizar.fatura.itens[0].quantidade | number}} un
-                <br />
-                {{finalizar.fatura.dataEntrega | date: 'dd/MM/yyyy'}}
-                <br />
-                {{finalizar.fatura.itens[0].valorTotalItem | currency: 'R$'}}
-                <br />
-              </div>
-            </div>
-            <div class="ver-todos">
-              <a ng-href="/#/carrinho"><i></i>Ver todos os produtos</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Resumo - Fim  -->
+          <button type="button" class="btn btn-primary btn-lg btn-block btn-upload">Finalizar Compra</button>
+        </section>
     </div>
   </div>
-
-  <div class="fundo" ng-show="true === carregando">
-    <div class="carregando">
-      <img src="lib/images/carregando.gif" alt="Por favor, aguarde..."/>
-      <br />
-      <label style="margin-top: 20px;">Por favor, aguarde...</label>
-    </div>
-  </div>
-</section>
-<!-- Conteudo - Fim  -->
-
-<div class="espaco"></div>
-
-<!--Newsletter - Inicio-->
-<section class="newsletter">
-  <div class="container">
-    <div class="col-md-8 col-sm-12">
-      <!-- -->
-      <ul>
-        <li class="iconMail">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139.95 55.18">
-            <path fill="#cbcfd4" d="M92.78 14.53c4.49 0 7.69 3.64 7.69 8.14v23.39a8.12 8.12 0 0 1-8.12 8.12H49.47a9 9 0 0 1-9-9V22.67a8.33 8.33 0 0 1 8.36-8.14" />
-            <path fill="#151617" d="M93.22 55.18H49.47c-5.62 0-10-4-10-9.12V22.67a9.69 9.69 0 0 1 9.78-9.64 1.45 1.45 0 0 1 1.32.85 1.51 1.51 0 0 1-1.36 2.15 6.69 6.69 0 0 0-6.73 6.64v23.39c0 3.83 3.57 6.12 7 6.12h43.73a5.92 5.92 0 0 0 6.25-6.12V22.67a6.47 6.47 0 0 0-6.44-6.64 1.51 1.51 0 0 1-1.36-2.15 1.44 1.44 0 0 1 1.31-.85 9.44 9.44 0 0 1 9.5 9.64v23.39a8.89 8.89 0 0 1-9.25 9.12z" />
-            <path fill="#151617" d="M71.32 37.39a9.59 9.59 0 0 1-4.67-1.2l-24.57-15.3a1.503 1.503 0 1 1 1.59-2.55l24.5 15.26a6.65 6.65 0 0 0 6.46-.07l23.9-15.18a1.5 1.5 0 1 1 1.61 2.53l-24 15.22a9.79 9.79 0 0 1-4.82 1.29z" />
-            <path fill="#fe0060" d="M73.47 10.51c-1.12 0-2.15 1.39-3 2-.83-.62-1.86-2-3-2a5 5 0 0 0-5 5c0 2.76 7.14 10.91 8 10.29.83.62 8-7.53 8-10.29a5 5 0 0 0-5-5z" />
-            <path fill="#151617" d="M70.6 27.18s-.08.08-.12.07-.08 0-.12 0c-2.45 0-9.36-8.71-9.36-11.81a6.5 6.5 0 0 1 6.5-6.49 4.57 4.57 0 0 1 3 1.5 4.56 4.56 0 0 1 3-1.49 6.51 6.51 0 0 1 6.5 6.5c0 2-2.07 4.87-3.8 7-3.84 4.78-5.16 4.72-5.6 4.72zm-3.13-15.17a3.5 3.5 0 0 0-3.49 3.5c0 1.65 4.77 7.55 6.48 8.74 1.7-1.19 6.48-7.09 6.48-8.74a3.5 3.5 0 0 0-3.5-3.5 4.68 4.68 0 0 0-1.19.93 10.51 10.51 0 0 1-.88.77 1.52 1.52 0 0 1-1.79 0 10.36 10.36 0 0 1-.89-.78 4.52 4.52 0 0 0-1.22-.92z" />
-            <path fill="#fe0060" d="M133.47 1.51c-1.12 0-2.15 1.39-3 2-.83-.62-1.86-2-3-2a5 5 0 0 0-5 5c0 2.76 7.14 10.91 8 10.29.83.62 8-7.53 8-10.29a5 5 0 0 0-5-5z" />
-            <path fill="#151617" d="M130.6 18.18s-.08.08-.12.07-.08 0-.12 0c-2.45 0-9.36-8.71-9.36-11.81a6.5 6.5 0 0 1 6.5-6.49 4.57 4.57 0 0 1 3 1.5 4.56 4.56 0 0 1 3-1.49 6.51 6.51 0 0 1 6.5 6.5c0 2-2.07 4.87-3.8 7-3.84 4.78-5.16 4.72-5.6 4.72zm-3.13-15.17a3.5 3.5 0 0 0-3.49 3.5c0 1.65 4.77 7.55 6.48 8.74 1.7-1.19 6.48-7.09 6.48-8.74a3.5 3.5 0 0 0-3.5-3.5 4.68 4.68 0 0 0-1.19.93 10.51 10.51 0 0 1-.88.77 1.52 1.52 0 0 1-1.79 0 10.36 10.36 0 0 1-.89-.78 4.52 4.52 0 0 0-1.22-.92z" />
-            <path fill="#fe0060" d="M10.47 26.06c-1 0-1.87 1.21-2.6 1.75-.73-.54-1.62-1.75-2.6-1.75a4.36 4.36 0 0 0-4.36 4.36c0 2.41 6.23 9.52 7 9 .73.54 7-6.57 7-9a4.36 4.36 0 0 0-4.44-4.36z" />
-            <path fill="#151617" d="M8.38 41.18s-.07-.09-.1-.09h-.1c-2.14 0-8.17-7.64-8.17-10.34a5.69 5.69 0 0 1 5.67-5.68 4 4 0 0 1 2.6 1.3 4 4 0 0 1 2.6-1.31 5.68 5.68 0 0 1 5.67 5.67c0 1.72-1.8 4.41-3.32 6.29-3.32 4.06-4.47 4.16-4.85 4.16zM5.67 27.62a3.05 3.05 0 0 0-3 3.05c0 1.44 4.16 6.58 5.65 7.63 1.49-1 5.65-6.18 5.65-7.63a3.06 3.06 0 0 0-3.05-3.05 4.08 4.08 0 0 0-1 .82 9.17 9.17 0 0 1-.77.68 1.32 1.32 0 0 1-1.57 0 9 9 0 0 1-.78-.68 4 4 0 0 0-1.14-.82z" />
-            <path fill="#fe0060" d="M113.76 38.44c-.78 0-1.49 1-2.07 1.4-.58-.43-1.29-1.4-2.07-1.4a3.48 3.48 0 0 0-3.48 3.48c0 1.92 5 7.6 5.55 7.16.58.43 5.55-5.24 5.55-7.16a3.48 3.48 0 0 0-3.48-3.48z" />
-            <path fill="#151617" d="M111.68 49.18s-.05.29-.08.29-.05.15-.08.15c-1.7 0-6.52-6-6.52-8.16a4.5 4.5 0 0 1 4.52-4.49 3.19 3.19 0 0 1 2.07 1.06 3.16 3.16 0 0 1 2.07-1 4.53 4.53 0 0 1 4.52 4.53c0 1.37-1.44 3.16-2.65 4.66-2.62 3.24-3.54 2.96-3.85 2.96zm-2.21-10.09a2.44 2.44 0 0 0-2.43 2.44c0 1.15 3.32 5.25 4.51 6.08 1.19-.83 4.51-4.93 4.51-6.08a2.44 2.44 0 0 0-2.44-2.43 3.26 3.26 0 0 0-.83.65 7.27 7.27 0 0 1-.62.54 1 1 0 0 1-1.24 0 7.17 7.17 0 0 1-.62-.54 3.15 3.15 0 0 0-.84-.66zM63.58 13.03H49.47c-5.62 0-10 3.86-10 9v12h3v-12c0-3.83 3.57-6 7-6h13.21zm29.64 0H78.47v3h14.75c3.68 0 6.25 2.37 6.25 6v12h3v-12c0-5.31-3.89-9-9.25-9z" />
-          </svg>
-        </li>
-        <li class="subscribe ng-scope" ng-controller="NewsletterCtrl">
-          <h4>Inscreva-se em nossa newsletter</h4>
-          <p>para receber nossas últimas notícias e descontos exclusivos</p>
-          <form id="subscribe" name="formNewsletter">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Digite seu email">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                  Inscrever
-                </button>
-              </span>
-            </div>
-            <!-- /input-group -->
-          </form>
-        </li>
-        <li class="social">
-          <p>Encontre-nos em nossas redes sociais</p>
-          <p><a href="https://www.facebook.com/PrintiBR?fref=ts" alt="Facebook" target="blank" class="facebook"></a>
-            <a href="https://twitter.com/Printi" alt="Twitter" target="blank" class="twitter"></a>
-            <a href="https://www.linkedin.com/company/printi" alt="Linkedin" target="blank" class="linkedin"></a>
-            <a href="https://plus.google.com/u/1/+PrintiBr/posts" alt="Google Plus" target="blank" class="googleplus no-mr"></a></p>
-          </li>
-        </ul>
-        <!-- -->
-      </div>
-    </div>
-  </section>
-  <!--Newsletter - Fim-->
+</div>

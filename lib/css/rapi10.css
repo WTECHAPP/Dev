@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
+.no-padding {
+    padding: 0;
+}
+
 body {
     background: #eeeeee;
 }
@@ -91,7 +95,8 @@ section.main-section header {
     margin: 2em 0;
 }
 section.main-section header h3 {
-    font-size: 2em;
+    font-size: 23px;
+    font-family: 'Open-Sans', sans-serif;
 }
 
 section#produtos-destaque {
@@ -120,8 +125,8 @@ section#produtos-destaque .produtos-destaque__produtos li span {
     padding: .3em 0;
 }
 
-section.customize {
-
+section.customize header h3 {
+    margin: 0;
 }
 
 section.customize .customize__options {
@@ -136,8 +141,7 @@ section.customize .customize__options {
 section.customize .customize__options ul {
     display: block;
     clear: both;
-    padding: 0;
-    
+    padding: 0;    
 }
 
 section.customize .customize__options ul li {
@@ -149,15 +153,248 @@ section.customize .customize__options ul li {
     box-shadow: 0px -1px 0px #e6e7e9, 
                 0px 1px 1px white;
 }
-section.customize__resumo {
-    background-color: white;
+
+section.detalhes-pedido {
+    margin: 0px 55px;
+   
+}
+section.detalhes-pedido .resumo {
+    background-color: white;   
+    padding: 2px 20px;
+    margin: 2em 0;
+    border: 1px solid #e6e7e9;
+    box-shadow: 0px -1px 0px #e6e7e9, 
+                0px 1px 1px white;
 }
 
-section.customize__resumo ul {
+.resumo h4 {
+    
+    font-weight: bold;
+}
+
+.resumo ul {
     list-style: none;
     padding: 0;
 }
 
-section.customize__resumo ul li {
-    padding: 3px 0px; 
+.resumo ul li {
+    font-family: 'Open Sans', sans-serif; 
 }
+section.detalhes-pedido button.btn-upload {
+    margin: 50px 0px;
+    background-color: #0590c4;
+    border-radius: 1px;
+}
+
+section.informacoes-pedido {
+    -moz-box-shadow:    0px 0px 4px 0px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, .1);
+    box-shadow:         0px 0px 4px 0px rgba(0, 0, 0, .1);
+    border: 1px solid #d6d6d6;
+    margin-bottom: 10px;
+}
+
+section.informacoes-pedido header {
+    background-color: #f8f8f8;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+}
+
+section.informacoes-pedido header h4 {
+    margin: 0;
+}
+
+.informacoes-pedido__conteudo {
+    background-color: #ffffff;
+    padding: 15px 20px;
+}
+.informacoes-pedido__conteudo .endereco {
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+    padding: 6px 10px;
+}
+
+.informacoes-pedido__conteudo .endereco h6 {
+    font-weight: bold;
+}
+
+.informacoes-pedido__conteudo .endereco ul {
+    list-style: none;
+    padding: 0px;
+}
+.informacoes-pedido__conteudo .endereco ul li {
+    color: #6e6e6e;
+    font-family: 'Opens Sans', sans-serif;
+}
+
+section.informacoes-pedido button.btn-card {
+    background-color: #006ee3;
+    border-radius: 1px;
+    width: 100%;
+    margin-right: 0; 
+}
+
+section.informacoes-pedido button.btn-bank {
+    border-radius: 1px;
+    border: 1px solid #e0e2e4;
+    font-weight: bold;
+    width: 100%;
+}
+
+section.informacoes-pedido .credit-card img {
+    width: 100%;
+    margin-top: 15px;
+}
+
+section.informacoes-pedido .informacoes-pedido__pagamento .form-input {
+    width: 100%;
+    margin-top: 15px;
+    padding: 0px;
+}
+
+section.informacoes-pedido .informacoes-pedido__pagamento .form-input input {
+    border-radius: 3px;
+    margin: 0px;
+}
+
+section.informacoes-pedido .informacoes-pedido__pagamento .select-pag {
+    margin-top: 15px;
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
+
+section.detalhes-pedido .resumo h5{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+section.detalhes-pedido .resumo h2 {
+    color: #27be5a;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin: 0;
+}
+section.detalhes-pedido .resumo hr {
+    color: #f0f0f0;
+}
+
+section.detalhes-pedido .resumo i {
+    color: #0590c4;
+}
+
+section.detalhes-pedido .resumo a {
+    color: #0590c4;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+section.minhaconta {
+    background-color: #2ab9eb;
+    margin: 15px 0;
+    padding: .5em;
+    border-radius: 2px;
+}
+
+section.minhaconta .row {
+    margin: 0;
+}
+
+section.minhaconta header h3 {
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+section.minhaconta nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+section.minhaconta nav ul li {
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    padding: 35px 0px;
+    
+}
+
+section.minhaconta nav ul li i {
+    font-size: 25px;
+    color: black;
+}
+
+section.detalhes-pedido-resumo {
+    background-color: white;
+    padding: 15px;
+}
+
+section.detalhes-pedido-resumo .detalhes-pedido__upload h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+section.detalhes-pedido-resumo .detalhes-pedido__upload hr {
+    color: #dfe1e3;
+}
+
+section.detalhes-pedido-resumo .detalhes-pedido__upload ul {
+    list-style: none;
+    padding: 0;
+}
+section.detalhes-pedido-resumo .detalhes-pedido__upload ul li {
+    font-family: 'Open Sans', sans-serif;
+    padding: 1px 0px;
+}
+
+section.detalhes-pedido-resumo .detalhes-pedido__upload .alert__entrega {
+    background-color: #f4dd1d;
+    padding: 3px;
+}
+
+section.detalhes-pedido-resumo .detalhes-pedido__upload .alert__entrega h5 {
+    font-family: 'Open Sans', sans-serif;
+    color: #6a726b;
+    text-align: center;
+}
+
+ section.minhaconta .valor-rodape {
+    background-color: black;
+    width: 100%;
+    padding: 15px;
+}
+
+section.minhaconta .valor-rodape h2 {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-weight: 400;
+}
+
+section.minhaconta main {
+    background-color: #ffffff;
+    padding: 200px;
+    margin-left: .5em;
+}
+section.minhaconta main .upload-link button {
+    background-color: #f4dd1d;
+    border: none;
+    border-radius: 2px;
+    padding: 4px;
+}
+
+section.minhaconta main .upload-link button h2 {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #6a726b;
+
+}
+.no-padding {
+    padding: 0;
+}
+
