@@ -60,17 +60,65 @@ frontEnd.controller("homeCtrl", function ($scope, $location, $window, config, ho
       $window.location.href = "#/";
     }
 
+    $scope.owlOptionsTestimonials = {
+      items: 2,
+      loop: true,
+      mouseDrag: true,
+      touchDrag: true,
+      dots: true,
+      autoplay: true,
+      nav: true,
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem:true
+    }
+
+    $scope.mainCarouselInitializer = function() {
+        $("#owl-main").owlCarousel({
+          items: 2,
+          loop: true,
+          mouseDrag: true,
+          touchDrag: true,
+          dots: true,
+          autoplay: true,
+          nav: true,
+          slideSpeed : 300,
+          paginationSpeed : 400,
+          singleItem:true
+        })
+    };
+
+    $scope.secondCarouselInitializer = function() {
+      $("#owl-second").owlCarousel({
+        items: 2,
+        loop: true,
+        mouseDrag: true,
+        touchDrag: true,
+        dots: false,
+        autoplay: true,
+        nav: false,
+        slideSpeed : 300,
+        paginationSpeed : 400,
+        singleItem:true
+      })
+    };
+
     $scope.init = () => {
       $(document).ready(function() {
-        // $('.owl-carousel').owlCarousel({
-        //   items: 5,
+        
+        // $('#owl-demo').owlCarousel({
+        //   items: 2,
         //   loop: true,
         //   mouseDrag: true,
         //   touchDrag: true,
         //   dots: true,
         //   autoplay: true,
-        //   nav: true
+        //   nav: true,
+        //   slideSpeed : 300,
+        //   paginationSpeed : 400,
+        //   singleItem:true
         // })
+
         $('.carousel').carousel({
           interval: 2000
         })

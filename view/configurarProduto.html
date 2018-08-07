@@ -4,26 +4,26 @@
   <div class="container">
     <div class="row">
         <div class="col-lg-8 col-sm-12 col-md-8">
-            <section  class="customize main-section">
-                    <header>
-                        <h3>
-                          ESCOLHA O FORMATO DO SEU ARQUIVO
-                        </h3>      
-                        <br>     
-                    </header>
-                    <div class="customize__options">
-                      <ul>
-                        <li>4 x 5 cm</li>
-                        <li>4 x 5 cm</li>
-                        <li>4 x 5 cm</li>
-                        <li>4 x 5 cm</li>
-                        <li>4 x 5 cm</li>
-                        <li>4 x 5 cm</li>
-                      </ul>
-                    </div>
+            <section  class="customize main-section steps">
+                <header>
+                    <h3>
+                      ESCOLHA O FORMATO DO SEU ARQUIVO
+                    </h3>
+                    <br>     
+                </header>
+                <div class="customize__options">
+                  <ul>
+                    <li ng-repeat="(key,value) in listConfiguracoes[0].propriedades">
+                      <input type="radio" class="step-radio" id="chk_formato_{{key}}" ng-model="dados.formato" name="radio-group-formato" value="{{value.propriedade}}">
+                      <label for="chk_formato_{{key}}"><span>{{value.propriedade}}</span></label>
+                    </li>
+                  </ul>
+                </div>
               </section>
+              
+              <br>
 
-              <section  class="customize main-section">
+              <section  class="customize main-section steps">
                 <header>
                     <h3>
                       MATERIAL / TIPO DE PAPEL
@@ -32,17 +32,17 @@
                 </header>
                 <div class="customize__options">
                   <ul>
-                    <li>4 x 5 cm</li>
-                    <li>4 x 5 cm</li>
-                    <li>4 x 5 cm</li>
-                    <li>4 x 5 cm</li>
-                    <li>4 x 5 cm</li>
-                    <li>4 x 5 cm</li>
+                      <li ng-repeat="(key,value) in listConfiguracoes[1].propriedades">
+                        <input type="radio" class="step-radio" id="chk_material_{{key}}" ng-model="dados.material" name="radio-group-material" value="{{value.propriedade}}">
+                        <label for="chk_material_{{key}}"><span>{{value.propriedade}}</span></label>
+                      </li>
                   </ul>
                 </div>
               </section>
 
-              <section  class="customize main-section">
+              <br>
+
+              <section  class="customize main-section steps">
                 <header>
                     <h3>
                       ACABAMENTO
@@ -51,33 +51,91 @@
                 </header>
                 <div class="customize__options">
                   <ul>
-                    <li>4 x 5 cm</li>
-                    <li>4 x 5 cm</li>
-                    <li>4 x 5 cm</li>
-                    <li>4 x 5 cm</li>
-                    <li>4 x 5 cm</li>
-                    <li>4 x 5 cm</li>
+                    <li ng-repeat="(key,value) in listConfiguracoes[2].propriedades">
+                      <input type="radio" class="step-radio" id="chk_acabamento_{{key}}" ng-model="dados.acabamento" name="radio-group-acabamento" value="{{value.propriedade}}">
+                      <label for="chk_acabamento_{{key}}"><span>{{value.propriedade}}</span></label>
+                    </li>
                   </ul>
                 </div>
               </section>
+
+              <!-- <br>
+
+              <section  class="customize main-section">
+                <header>
+                    <h3>
+                      EXTRAS
+                    </h3>      
+                    <br>     
+                </header>
+                <div class="customize__options">
+                  <ul>
+                    <li ng-repeat="(key,value) in listAdicionais[2].propriedades">
+                      <input type="radio" id="chk_acabamento_{{key}}" name="radio-group-acabamento">
+                      <label for="chk_acabamento_{{key}}">{{value.propriedade}}</label>
+                    </li>
+                  </ul>
+                </div>
+              </section> -->
+
+              <br>
+              
+              <section  class="customize main-section steps">
+                <header>
+                    <h3>
+                      CHECAGEM
+                    </h3>      
+                    <br>     
+                </header>
+                <div class="customize__options">
+                  <ul>
+                    <li ng-repeat="(key,value) in listAdicionais[0].adicionais">
+                      <input type="radio" class="step-radio" id="chk_checagem_{{key}}" ng-model="dados.checagem" name="radio-group-checagem" value="{{value.nome}}">
+                      <label for="chk_checagem_{{key}}"><span>{{value.nome}}</span></label>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <br>
+
+              <section  class="customize main-section steps">
+                <header>
+                    <h3>
+                      ARQUIVO
+                    </h3>      
+                    <br>     
+                </header>
+                <div class="customize__options">
+                  <ul>
+                    <li ng-repeat="(key,value) in listAdicionais[1].adicionais">
+                      <input type="radio" class="step-radio" id="chk_arquivo_{{key}}" ng-model="dados.arquivo" name="radio-group-arquivo" value="{{value.nome}}">
+                      <label for="chk_arquivo_{{key}}"><span>{{value.nome}}</span></label>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <br>
+
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 align-self-start sticky-top float-sidebar">
           <section class="detalhes-pedido">
             <div class="resumo">       
               <h4>RESUMO</h4>
               <ul>
-                <li>Formato:</li>
-                <li>Impressao:</li>
-                <li>cores:</li>
-                <li>material:</li>
-                <li>Tipo de corte:</li>
-                <li>Enobrecimento:</li>
-                <li>Extras:</li>
+                <li><strong>Formato:</strong> {{dados.formato}}</li>
+                <!-- <li>Impressao: {{dados.material}}</li> -->
+                <!-- <li>Cores:</li> -->
+                <li><strong>Material:</strong> {{dados.material}}</li>
+                <!-- <li>Tipo de corte:</li> -->
+                <li><strong>Enobrecimento:</strong> {{dados.acabamento}}</li>
+                <!-- <li>Extras:</li> -->
               </ul>
               <h4>OPÇÕES ADICIONAIS</h4>      
               <ul>
-                <li>checagem:</li>
-                <li>Formato do arquivo:</li>
+                <li><strong>Checagem:</strong> {{dados.checagem}}</li>
+                <li><strong>Formato do arquivo:</strong> {{dados.arquivo}}</li>
               </ul>  
             </div>
           <button type="button" class="btn btn-primary btn-lg btn-block btn-upload">Upload do arquivo</button>

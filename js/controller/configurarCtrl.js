@@ -1,4 +1,7 @@
 frontEnd.controller("configurarCtrl", function ($scope, $location, $routeParams, $cookies, $window, config, configurarAPI) {
+  
+  $scope.dados = {}
+
   var consultaConfiguracoes = function(produto) {
     configurarAPI.configuracoes(produto).then((result) => {
       $scope.listConfiguracoes = result.data;
@@ -92,6 +95,14 @@ frontEnd.controller("configurarCtrl", function ($scope, $location, $routeParams,
     return produto;
   };
 
+  $(document).ready(function(){
+    $('.step-radio').click(function() {
+      $('html, body').animate({
+          scrollTop: $('.steps').offset().top
+      }, 1000);
+  });
+  })
+
   Date.prototype.addDays = function (d) { return new Date(this.valueOf() + (24 * 60 * 60 * 1000) * d); };
 
   $scope.buscarSku = function(event) {
@@ -176,7 +187,7 @@ frontEnd.controller("configurarCtrl", function ($scope, $location, $routeParams,
     return parseFloat(value);
   }
 
-  $scope.dateOnly= function(timestamp) {
+  $scope.dateOnly = function(timestamp) {
     return new Date(timestamp);
   }
 
